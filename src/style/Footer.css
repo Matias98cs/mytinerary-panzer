@@ -1,0 +1,23 @@
+.Footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 20vh;
+    background-color: #DCD7C9;
+    color: #3F4E4F;
+    font-size: 1rem;
+}
+
+.Footer-socials {
+    display: flex;
+    gap: 1em;
+}
+
+.Footer-socials a:hover {
+    transform: scale(1.2);
+}
+
+.Footer-adress a{
+    text-decoration: none;
+    color: #3F4E4F;
+} 
