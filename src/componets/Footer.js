@@ -1,9 +1,5 @@
 import React from 'react';
 import '../style/Footer.css';
-import Facebok from '../images/icons8-facebook-f-24.png';
-import Instagram from '../images/icons8-instagram-24.png';
-import Whatsapp from '../images/icons8-whatsapp-24.png';
-import Youtube from '../images/icons8-youtube-play-24.png';
 
 
 
@@ -12,16 +8,16 @@ export default function Footer() {
     <div className='Footer-container'>
         <div className='Footer-socials'>
             <a href="#">
-                <img src={Facebok} alt="" />
+                <img src="images/icons8-facebook-f-24.png" alt="" />
             </a>
             <a href="#">
-                <img src={Instagram} alt="" />
+                <img src="images/icons8-instagram-24.png" alt="" />
             </a>
             <a href="#">
-                <img src={Whatsapp} alt="" />
+                <img src="images/icons8-whatsapp-24.png" alt="" />
             </a>  
             <a href="#">
-                <img src={Youtube} alt="" />
+                <img src="images/icons8-youtube-play-24.png" alt="" />
             </a>
         </div>
         <div className='Footer-adress'>
