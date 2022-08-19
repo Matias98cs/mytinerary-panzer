@@ -16,18 +16,26 @@
 
 .Carousel-card {
     text-align: center;
-
+    
 }
 
 .Carousel-card img {
     width: 320px;
     height: 250px;
     object-fit: cover;
+    
 }
 
 .Carousel-card p {
     color: #3F4E4F;
     font-size: 1.2rem;
     font-weight: bold;
+    position: absolute;
+    top: 15rem;
+    background-color: #3f4e4f88;
+    color: white;
+    width: 16%;
+    padding: .5rem;
+    letter-spacing: 1px;    
 }
 
