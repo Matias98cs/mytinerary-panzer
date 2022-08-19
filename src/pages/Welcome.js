@@ -10,7 +10,7 @@ export default function Welcome() {
             <h3>Find your perfect trip, designed by insiders who know and love their cities!"</h3>
         </div>
         
-        <button>Login</button>
+        <a href='#'>Login</a>
     </div>
   )
 }
