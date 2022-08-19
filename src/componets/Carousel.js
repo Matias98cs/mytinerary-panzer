@@ -1,4 +1,5 @@
 import React from 'react'
+import '../style/Carousel.css'
 
 export default function Carousel() {
 
@@ -23,7 +24,7 @@ export default function Carousel() {
 
     const cityAndName = (item) => {
         return (
-            <div>
+            <div className='Carousel-card'>
                 <img src={item.url} alt="photoCity"/>
                 <p>{item.title}</p>
             </div>
@@ -31,8 +32,14 @@ export default function Carousel() {
     }
 
   return (
-    <div>
-        {carouselObj.slice(0,4).map(cityAndName)}
-    </div>
+    <>  
+        <div className='Carousel-title'>
+            <h1>Popular MYtineraries</h1>
+        </div>
+        <div className='Carousel-container'>
+        
+            {carouselObj.slice(0,4).map(cityAndName)}
+        </div>
+    </>
   )
 }
