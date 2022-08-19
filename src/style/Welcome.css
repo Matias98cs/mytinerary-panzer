@@ -38,7 +38,7 @@
     width: 200px;
 }
 
-.Welcome-container button {
+.Welcome-container a {
     border: none;
     padding: 1em 2em 1em 2em;
     border-radius: .5rem;
@@ -48,9 +48,10 @@
     color: white;
     letter-spacing: 1px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.Welcome-container button:hover {
+.Welcome-container a:hover {
     background-color: #DCD7C9;
     color: black;
     transform: scale(1.1);
