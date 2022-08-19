@@ -20,7 +20,10 @@ export default function Footer() {
                 <img src="images/icons8-youtube-play-24.png" alt="" />
             </a>
         </div>
-        <div className='Footer-adress'>
+        <div className='Footer-logo'>
+            <img src="./images/My-Tinerary-logo.png" alt="" />
+        </div>
+        <div className='Footer-address'>
             <p>Address: <strong>Río de Janeiro 300, Caballito</strong></p>
             <p>Email: <a href="mailto:dsadsad@gmail.com"><strong>mytinerary@gmail.com</strong></a></p>
         </div>
