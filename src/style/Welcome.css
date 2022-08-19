@@ -7,7 +7,31 @@
     min-height: 80vh;
     background-color: #3F4E4F;
     color: black;
-    gap: 4em;
+    gap: 2em;
+}
+
+.Welcome-title {
+    color: #DCD7C9;
+    letter-spacing: .5rem;
+    font-size: 4rem;
+    animation-duration: 2s;
+    animation-name:slidein;
+    font-family: 'Roboto', sans-serif;
+}
+.Welcome-title span{
+    font-size: 6rem;
+    color: #A27B5C;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%
+    }
+    to {
+        margin-left: 70%;
+        width: 100%;
+    }
 }
 
 .Welcome-container img {
@@ -36,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .Welcome-title-logo h3{
@@ -43,4 +68,5 @@
     text-align: center;
     color: #fff;
     letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
 }
