@@ -39,3 +39,16 @@
     letter-spacing: 1px;    
 }
 
+.btn-next-prev {
+    border: none;
+    background-color:transparent;
+    cursor: pointer;
+    display: flex;
+    opacity: 0.2;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.btn-next-prev img {
+}
