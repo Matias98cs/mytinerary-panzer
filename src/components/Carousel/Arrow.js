@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function Arrow(props) {
   if (!props.icon) {
     throw new Error("se necesita una icono");
@@ -8,7 +9,7 @@ export default function Arrow(props) {
     throw new Error("Se requiere una funcion");
   }
   return (
-    <button>
+    <button className="btn-next-prev">
       <img src={props.icon} alt={props.icon} onClick={props.click} />
     </button>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/Carousel.css";
-import Arrow from "./Arrow";
+import Arrow from "./Carousel/Arrow";
 
 export default function Carousel(props) {
   const range = props.range
