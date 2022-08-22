@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../componets/Footer'
-import UnderConstruction from '../componets/UnderConstruction'
+import Footer from '../components/Footer'
+import UnderConstruction from '../components/UnderConstruction'
 
 export default function WebsiteLayout(props) {
   return (
