@@ -1,14 +1,15 @@
 import './style/App.css';
-import Footer from './componets/Footer';
+import Footer from './components/Footer';
 import Welcome from './pages/Welcome';
-import Carousel from './componets/Carousel';
+import Carousel from './components/Carousel';
 import WebsiteLayout from './layouts/WebsiteLayout';
+import EventsCarousel from './components/EventsCarousel';
 
 
 function App() {
   return (
     <>
-      <Carousel />
+      <EventsCarousel />
       <Welcome/>
       <WebsiteLayout/>
     </>
