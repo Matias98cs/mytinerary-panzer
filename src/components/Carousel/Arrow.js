@@ -9,8 +9,8 @@ export default function Arrow(props) {
     throw new Error("Se requiere una funcion");
   }
   return (
-    <button className="btn-next-prev">
-      <img src={props.icon} alt={props.icon} onClick={props.click} />
+    <button className="btn-next-prev" onClick={props.click}>
+      <img src={props.icon} alt={props.icon}  />
     </button>
   );
 }
