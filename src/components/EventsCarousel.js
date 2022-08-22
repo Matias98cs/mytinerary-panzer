@@ -1,9 +1,10 @@
 import React from 'react'
-import '../style/Carousel.css'
+import Carousel from './Carousel'
 
-export default function Carousel() {
 
-    const carouselObj = [
+function EventsCarousel() {
+
+    let carouselObj = [
         {
             url: 'https://barilocheturismo.gob.ar/images/home/map/bariloche_es.png?v3',
             title: 'Bariloche'
@@ -54,24 +55,10 @@ export default function Carousel() {
         }
     ]
 
-    const cityAndName = (item) => {
-        return (
-            <div className='Carousel-card'>
-                <img src={item.url} alt="photoCity" />
-                <p>{item.title}</p>
-            </div>
-        )
-    }
 
-    return (
-        <>
-            <div className='Carousel-title'>
-                <h1>Popular MYtineraries</h1>
-            </div>
-            <div className='Carousel-container'>
-
-                {carouselObj.slice(0, 4).map(cityAndName)}
-            </div>
-        </>
-    )
+  return (
+    <Carousel data={carouselObj} range={4} text="Popular MYtineraries" />
+  )
 }
+
+export default EventsCarousel;
