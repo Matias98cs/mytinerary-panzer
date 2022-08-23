@@ -1,11 +1,10 @@
 import React from 'react'
-import Carousel from '../componets/Carousel'
+import EventsCarousel from '../components/EventsCarousel'
 
 export default function Cities() {
   return (
     <div>
-        <h1>Popular MYtineraries</h1>
-        <Carousel />
+        <EventsCarousel/>
     </div>
   )
 }
