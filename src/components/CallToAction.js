@@ -1,7 +1,8 @@
 import React from 'react'
+import {Link as LinkRouter} from 'react-router-dom'
 
-export default function CallToAction() {
+export default function CallToAction(props) {
   return (
-        <a href='#'>Login</a>
+    <LinkRouter to={props.linkto} > {props.btnText} </LinkRouter>
   )
 }
