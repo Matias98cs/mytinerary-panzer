@@ -1,16 +1,12 @@
 import React from 'react'
-import Cities from '../components/Cities'
 import Footer from '../components/Footer'
-import UnderConstruction from '../components/UnderConstruction'
 
 export default function WebsiteLayout(props) {
   return (
     <div>
-
+        <h2>SOY EL HEADER</h2>
         {props.children}
-        {/* <UnderConstruction/> */}
         <Footer />
-        
     </div>
   )
 }

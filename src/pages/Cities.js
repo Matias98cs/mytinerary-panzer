@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from '../componets/Carousel'
 
-export default function Home() {
+export default function Cities() {
   return (
     <div>
         <h1>Popular MYtineraries</h1>
