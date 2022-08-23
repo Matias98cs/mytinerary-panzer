@@ -7,12 +7,13 @@ import EventsCarousel from './components/EventsCarousel';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Cities from './pages/Cities';
 import UnderConstruction from './pages/UnderConstruction';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
   return (
     <BrowserRouter>
-
+      <ScrollToTop />
       <WebsiteLayout>
 
         <Routes>
