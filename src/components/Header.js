@@ -1,18 +1,26 @@
 import React from 'react'
 import {Link as LinkRouter} from 'react-router-dom'
-
+import '../style/Header.css'
 
 const page = [
     {name:'Home', to:'/'},
     {name:'Cities', to: '/cities'},
 ]
-const link = (page)=> <LinkRouter to={page.to}>{page.name} </LinkRouter>
+const link = (page)=> <LinkRouter className='Header-Link' to={page.to}>{page.name} </LinkRouter>
 
 export default function Header() {
     
     return (
-        <div>
+        <header>
+            <div className='Header-logo'>
+            <img src="images/logo.png" alt="" />    
+            </div>
+            <div className='Header-link'>
             {page.map(link)}
-        </div>
+            <div className='Header-login'>
+            <img src='./images/pngegg.png' alt=''/>       
+            </div>
+            </div>
+        </header>
     )
     }
