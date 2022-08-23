@@ -1,4 +1,4 @@
-.Header-Link{
+.btnHover{
     text-decoration: none;
     padding: .5rem;
     border-radius: .5rem;
@@ -9,22 +9,30 @@
 }
 header{
     width: 100%;
-    height: 5vh;
+    min-height: 5vh;
     display: flex;
     justify-content: space-between;
-    gap: .5rem;
     padding: 1rem 0 .5rem 0;
     background-color: #3F4E4F;
     text-align: center;
     
 }
+
+.Header-logo {
+    display: flex;
+}
+
+.Header-logo h2 {
+    color: #DCD7C9;
+}
+
 .Header-logo img{
     height: 75px;
     width: 75px;
-    
 }
 .Header-link {
     display: flex;
+    align-items: center;
     gap: 1rem;
     padding-right: .5rem ;
 }
@@ -32,6 +40,13 @@ header{
     width: 30px;
     height: 30px;
 }
+
+.btnHover:hover{
+    background-color: #DCD7C9;
+    color: black;
+    transform: scale(1.1);
+}
+
 .Header-login {
     border: 1px solid white;
     border-radius: 360px;
