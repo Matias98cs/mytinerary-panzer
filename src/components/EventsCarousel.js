@@ -57,7 +57,7 @@ function EventsCarousel() {
 
 
   return (
-    <Carousel data={carouselObj} range={4} text="Popular MYtineraries" interval={4} />
+    <Carousel data={carouselObj} range={4} text="Popular MYtineraries" interval={4} slides={3}/>
   )
 }
 
