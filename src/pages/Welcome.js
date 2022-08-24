@@ -14,7 +14,7 @@ export default function Welcome() {
         </div>
         <CallToAction linkto='cities' btnText={'Enter!'}/>
     </div>
-    <EventsCarousel />
+    {/* <EventsCarousel /> */}
   </>
     
   )
