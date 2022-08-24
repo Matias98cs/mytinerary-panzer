@@ -38,6 +38,7 @@ export default function Footer() {
               <LinkRouter className="btn-footer" to="/cities">
                 Cities
               </LinkRouter>
+              <LinkRouter className="btn-footer" to="/newcity" >New City</LinkRouter>
             </div>
           </div>
           <div className="Footer-address">
