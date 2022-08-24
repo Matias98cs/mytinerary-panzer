@@ -4,6 +4,7 @@ import Arrow from "./Carousel/Arrow";
 
 export default function Carousel(props) {
   const range = props.range
+  const limitSlides = (props.slides * range)
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
@@ -31,14 +32,23 @@ export default function Carousel(props) {
     if (start >= range) {
       setStart(start - range);
       setEnd(end - range);
+    }else {
+      setStart(limitSlides - range)
+      setEnd(limitSlides)
     }
+    clearInterval(intervalId)
   }
 
   function next() {
-    if (end < photos.length) {
+    if (start < limitSlides - range) {
       setStart(start + range);
       setEnd(end + range);
+    } else {
+      setStart(0)
+      setEnd(range)
     }
+    clearInterval(intervalId)
+
   }
 
   return (
