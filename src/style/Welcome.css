@@ -4,18 +4,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 85vh;
     background-color: #3F4E4F;
     color: black;
     gap: 2em;
+    padding-bottom: 2rem;
 }
 
 .Welcome-title {
     color: #DCD7C9;
     letter-spacing: .5rem;
     font-size: 4rem;
-    animation-duration: 2s;
-    animation-name:slidein;
+    /* animation-duration: 2s;
+    animation-name:slidein; */
     font-family: 'Roboto', sans-serif;
 }
 .Welcome-title span{
