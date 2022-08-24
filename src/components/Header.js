@@ -5,6 +5,8 @@ import "../style/Header.css";
 const page = [
   { name: "Home", to: "/" },
   { name: "Cities", to: "/cities" },
+  { name: "New City", to: "/newcity" },
+
 ];
 const link = (page) => (
   <LinkRouter className=" btnHover" to={page.to}>
