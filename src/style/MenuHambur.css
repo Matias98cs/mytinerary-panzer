@@ -16,6 +16,7 @@ nav{
     gap:1em;
     justify-content: center;
     align-items: center;
+    padding-right: 1rem;
 }
 
 .nav_item{

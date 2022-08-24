@@ -48,6 +48,10 @@ header{
     transform: scale(1.1);
 }
 
+.Header-login img {
+    width: 30px;
+}
+
 .Header-login {
     border: 1px solid white;
     border-radius: 360px;
@@ -55,6 +59,7 @@ header{
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-right: 1rem;
 }
 
 .Header-dropdown{
