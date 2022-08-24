@@ -74,3 +74,11 @@ footer {
     color: #3F4E4F;
     padding-top: 1.5em;
 }
+
+@media (max-width:940px){
+    .Footer-container{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+}
