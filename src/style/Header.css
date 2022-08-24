@@ -8,7 +8,6 @@
     align-items: center;
 }
 header{
-    width: 100vw;
     min-height: 5vh;
     display: flex;
     justify-content: space-between;
