@@ -1,10 +1,22 @@
+.Carousel-main{
+    min-height:100vh;
+    background-image: url('../../public/images/bariloche.png') ;
+}
 
 .Carousel-title {
     text-align: center;
+    padding: 1rem 0 1rem;
 }
 
 .Carousel-title h1 {
     color: #3F4E4F;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #3f4e4f88;
+    color: white;
+    letter-spacing: 1px; 
+    margin: 0;
+    padding: 1.5rem; 
 }
 
 .Carousel-container {
@@ -12,7 +24,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    gap: 2rem;
 }
+
+.Carousel-photo {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 
 .Carousel-card {
     text-align: center;
@@ -20,8 +42,8 @@
 }
 
 .Carousel-card img {
-    width: 320px;
-    height: 250px;
+    width: 400px;
+    height: 330px;
     object-fit: cover;
     
 }
@@ -41,9 +63,54 @@
     background-color:transparent;
     cursor: pointer;
     display: flex;
-    opacity: 0.2;
     justify-content: center;
     align-items: center;
     height: 250px;
+}
+
+@media (max-width:1024px){
+
+    .Carousel-photo {
+        display: grid;
+        grid-template-columns: 400px 400px;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+@media (max-width: 940px){
+    .Carousel-photo{
+        grid-template-columns: 400px;
+    }
+}
+@media (max-width: 600px){
+    .btn-next-prev{
+        display: none;
+    }
+}
+
+@media (max-width: 425px){
+    .Carousel-card img {
+        width: 290px;
+    }
+    
+}
+
+@media (max-width: 375px){
+    .Carousel-card p {
+        width: 100%;
+        padding: 8px 0 8px;
+    }
+    .Carousel-card {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Carousel-photo{
+        grid-template-columns: 300px;
+    }
+    
 }
 
