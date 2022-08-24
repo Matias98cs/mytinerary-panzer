@@ -53,4 +53,33 @@ header{
     padding: .5rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.Header-dropdown{
+    right: 0;
+    top: 90px;
+    background: #DCD7C9;
+    position: absolute;
+    margin-right: 1rem;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.Header-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-right: 2rem;
+    text-align: start;
+    gap: .5rem;
+}
+
+.Header-dropdown ul li {
+    color: #3F4E4F;
+    cursor: pointer;
+}
+
+.Header-dropdown ul li:hover {
+    color: #A27B5C;
 }
