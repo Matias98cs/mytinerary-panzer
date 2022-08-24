@@ -35,6 +35,7 @@ export default function Menu() {
           <input type="checkbox" id="menu" className="nav_input" />
 
           <div className="nav_menu">{page.map(link)}</div>
+        </div>
           <div className="Header-dropdown">
           {
             open
@@ -50,7 +51,6 @@ export default function Menu() {
           <div className="Header-login">
             <img onClick={handleOpenMenu} src="./images/pngegg.png" alt="" />
           </div>
-        </div>
       </nav>
     </>
   );
