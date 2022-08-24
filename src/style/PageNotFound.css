@@ -1,0 +1,34 @@
+.Not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    min-height: 80vh;
+    background: #3F4E4F;
+}
+
+.Not-found-text p{
+    font-size: 1.5rem;
+    color: #DCD7C9;
+    letter-spacing: 1px;
+}
+
+.Not-found-btn a{
+    border: none;
+    padding: 1em 2em 1em 2em;
+    border-radius: .5rem;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #A27B5C;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Not-found-btn a:hover {
+    background-color: #DCD7C9;
+    color: black;
+    transform: scale(1.1);
+}
