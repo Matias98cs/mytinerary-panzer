@@ -52,15 +52,17 @@ export default function Carousel(props) {
   }
 
   return (
-    <>
+    <div className="Carousel-main">
       <div className="Carousel-title">
         <h1>{props.text}</h1>
       </div>
       <div className="Carousel-container">
         <Arrow icon={"./images/arrow-left.svg"} click={previus} />
-        {photos.slice(start, end).map(cityAndName)}
+        <div className="Carousel-photo">
+        {photos.slice(start, end).map(cityAndName)}  
+        </div>
         <Arrow icon={"./images/arrow-right.svg"} click={next} />
       </div>
-    </>
+    </div>
   );
 }
