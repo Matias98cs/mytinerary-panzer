@@ -8,7 +8,7 @@
     align-items: center;
 }
 header{
-    width: 100%;
+    width: 100vw;
     min-height: 5vh;
     display: flex;
     justify-content: space-between;
@@ -88,4 +88,14 @@ header{
 
 .Header-dropdown ul li:hover {
     color: #A27B5C;
+}
+
+@media (max-width:700px){
+    .Header-logo {
+        display: none;
+    }
+    .Header-dropdown{
+        align-self: flex-end;
+    }
+    
 }

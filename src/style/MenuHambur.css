@@ -44,7 +44,10 @@ nav{
 }
 
 @media (max-width: 700px){
-
+    nav{
+        width: 100%;
+        justify-content: space-between;
+    }
     .nav_item{
         width: 40%;
         color:white;
