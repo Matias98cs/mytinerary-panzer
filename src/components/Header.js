@@ -1,18 +1,7 @@
 import React, { useState } from "react";
-import { Link as LinkRouter } from "react-router-dom";
 import "../style/Header.css";
+import Menu from "./menu_hambur/Menu";
 
-const page = [
-  { name: "Home", to: "/" },
-  { name: "Cities", to: "/cities" },
-  { name: "New City", to: "/newcity" },
-
-];
-const link = (page) => (
-  <LinkRouter className=" btnHover" to={page.to}>
-    {page.name}
-  </LinkRouter>
-);
 
 export default function Header() {
 
@@ -36,12 +25,10 @@ export default function Header() {
         <img src="images/logo.png" alt="" />
         <h2>My Tinerary</h2>
       </div>
-      <div className="Header-link">
-        {page.map(link)}
-        <div className="Header-login">
+        {/* <div className="Header-login">
           <img onClick={handleOpenMenu} src="./images/pngegg.png" alt="" />
-        </div>
-      </div>
+        </div> */}
+      
       <div className="Header-dropdown">
           {
             open
@@ -54,6 +41,9 @@ export default function Header() {
                 null
           }
         </div>
+      
+        <Menu />  
+        
     </header>
   );
 }
