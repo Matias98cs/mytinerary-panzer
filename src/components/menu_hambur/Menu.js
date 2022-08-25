@@ -4,12 +4,12 @@ import "../../style/MenuHambur.css";
 import { Link as LinkRouter } from "react-router-dom";
 
 const page = [
-  { name: "Home", to: "/" },
-  { name: "Cities", to: "/cities" },
-  { name: "New City", to: "/newcity" },
+  { name: "Home", to: "/", id:1},
+  { name: "Cities", to: "/cities", id:2},
+  { name: "New City", to: "/newcity", id:3},
 ];
 const link = (page) => (
-  <LinkRouter className="nav_item" to={page.to}>
+  <LinkRouter className="nav_item" to={page.to} key={page.id}>
     {page.name}
   </LinkRouter>
 );

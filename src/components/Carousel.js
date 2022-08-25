@@ -12,8 +12,8 @@ export default function Carousel(props) {
   const time = props.interval * 1000
 
   const cityAndName = (item) => (
-    <div className="Carousel-card">
-      <img src={item.url} alt="photoCity" />
+    <div className="Carousel-card" key={item.id}>
+      <img src={item.url} alt={item.title}/>
       <p>{item.title}</p>
     </div>
   );
