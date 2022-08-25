@@ -17,3 +17,11 @@
     outline: none;
     border: 2px solid #A27B5C;
 }
+
+.Cities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #dcd7c94f; */
+    background: url("../../public/images/bariloche.png");
+}
