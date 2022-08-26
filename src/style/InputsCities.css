@@ -1,0 +1,10 @@
+.Inputs-container {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Input-Label {
+    display: flex;
+    padding: 1em;
+}
