@@ -127,9 +127,9 @@ function CityCard() {
 
   return (
     <>
-        <form className="cityCard-container">
+        <div className="cityCard-container">
             {dataCities.map(cardCity)}
-        </form>
+        </div>
     </>
   )
 }
