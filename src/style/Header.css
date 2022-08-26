@@ -10,7 +10,7 @@
 header{
     min-height: 5vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem 0 .5rem 0;
     background-color: #3F4E4F;
     text-align: center;
@@ -88,7 +88,11 @@ header{
 .Header-dropdown ul li:hover {
     color: #A27B5C;
 }
-
+@media (max-width:1980px){
+    header{
+        justify-content: space-between;
+    }
+}
 @media (max-width:700px){
     .Header-logo {
         display: none;
