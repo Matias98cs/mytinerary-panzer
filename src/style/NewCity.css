@@ -1,4 +1,9 @@
 .NewCity-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #DCD7C9;
     min-height: 80vh;
     
 }
