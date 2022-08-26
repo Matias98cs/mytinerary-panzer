@@ -32,3 +32,20 @@
     color: black;
     transform: scale(1.1);
 }
+
+.Not-found-container img{
+    width: 500px;
+}
+
+@media (max-width:768px){
+    .Not-found-container img{
+        width: 300px;
+    }
+
+}
+@media (max-width:400px){
+    .Not-found-container img{
+        width: 200px;
+    }
+
+}
