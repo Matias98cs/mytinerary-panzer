@@ -1,20 +1,21 @@
 
-.cityCard-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  .cityCard-container{
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     gap: 3em;
     padding: 2em 0 2em 0;
-}
+  }
   
-.card_image {
+  .card_image {
     height: 300px;
-}
+  }
 
-.card_image img{
+  .card_image img{
     height: 100%;
   }
+  
   .btn{
     color: white;
     padding: 0.8rem;
@@ -47,19 +48,7 @@
     display: flex;
     width: 22rem;
   }
-  
-  @media (max-width: 40rem) {
-    .cards_item {
-      width: 50%;
-    }
-  }
-  
-  @media (max-width: 56rem) {
-    .cards_item {
-      width: 33.3333%;
-    }
-  }
-  
+    
   .card {
     background-color: white;
     border-radius: 0.25rem;
@@ -99,4 +88,25 @@
     font-size: 13px;
     margin-top: 35px;
     text-align: center;
+  }
+
+  @media (max-width: 400px){
+    .cards_item{
+      width: 16rem;
+    }
+    .card{
+      width: 90%;
+    }
+    
+  }
+  
+  @media (max-width: 896px) {
+    .cards_item {
+      justify-content: center;
+    }
+    .card{
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
