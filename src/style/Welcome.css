@@ -1,0 +1,95 @@
+
+.Welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background-color: #3F4E4F;
+    color: black;
+    gap: 2em;
+    padding-bottom: 2rem;
+}
+
+.Welcome-title {
+    color: #DCD7C9;
+    letter-spacing: .5rem;
+    font-size: 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+.Welcome-title span{
+    font-size: 6rem;
+    color: #A27B5C;
+}
+
+.Welcome-container img {
+    width: 200px;
+}
+
+.Welcome-container a {
+    border: none;
+    padding: 1em 2em 1em 2em;
+    border-radius: .5rem;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #A27B5C;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Welcome-container a:hover {
+    background-color: #DCD7C9;
+    color: black;
+    transform: scale(1.1);
+}
+
+.Welcome-title-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Welcome-title-logo h3{
+    width: 350px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width:550px){
+    .Welcome-title{
+        font-size: 3rem;
+        width: auto;
+    }
+
+    .Welcome-title span{
+        font-size: 4rem;
+    }
+    .Welcome-title-logo{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px){
+    .Welcome-title{
+        font-size: 2rem;
+        width: auto;
+    }
+
+    .Welcome-title span{
+        font-size: 3rem;
+    }
+
+    .Welcome-container img {
+        width: 150px;
+    }
+
+    .Welcome-title-logo h3 {
+        width: 250px;
+    }
+
+}

@@ -1,0 +1,104 @@
+.btnHover{
+    text-decoration: none;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color:#A27B5C ;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+header{
+    min-height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0 .5rem 0;
+    background-color: #3F4E4F;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.Header-logo {
+    display: flex;
+}
+
+.Header-logo h2 {
+    color: #DCD7C9;
+}
+
+.Header-logo img{
+    height: 75px;
+    width: 75px;
+}
+.Header-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-right: .5rem ;
+}
+.Header-link img{
+    width: 30px;
+    height: 30px;
+}
+
+.btnHover:hover{
+    background-color: #DCD7C9;
+    color: black;
+    transform: scale(1.1);
+}
+
+.Header-login img {
+    width: 30px;
+}
+
+.Header-login {
+    border: 1px solid white;
+    border-radius: 360px;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.Header-dropdown{
+    right: 0;
+    top: 90px;
+    background: #DCD7C9;
+    position: absolute;
+    margin-right: 1rem;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.Header-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-right: 2rem;
+    text-align: start;
+    gap: .5rem;
+}
+
+.Header-dropdown ul li {
+    color: #3F4E4F;
+    cursor: pointer;
+}
+
+.Header-dropdown ul li:hover {
+    color: #A27B5C;
+}
+@media (max-width:1980px){
+    header{
+        justify-content: space-between;
+    }
+}
+@media (max-width:700px){
+    .Header-logo {
+        display: none;
+    }
+    .Header-dropdown{
+        align-self: flex-end;
+    }
+    
+}

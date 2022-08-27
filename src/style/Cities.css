@@ -1,0 +1,27 @@
+.form-input-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.form-input-text input {
+    border: 2px solid #3f4e4f6c;
+    border-radius: 1rem;
+    width: 400px;
+    height: 30px;
+    padding-left: .4rem;
+}
+
+.form-input-text input:focus-visible {
+    outline: none;
+    border: 2px solid #A27B5C;
+}
+
+.Cities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #dcd7c94f; */
+    background: url("../../public/images/bariloche.png");
+}
