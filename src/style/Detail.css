@@ -1,0 +1,10 @@
+header{
+    min-height: 5vh;
+}
+.Detail-container{
+    min-height: 80vh;
+}
+
+footer{
+    min-height: 15vh;
+}
