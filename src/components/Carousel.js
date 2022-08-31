@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../style/Carousel.css";
 import Arrow from "./Carousel/Arrow";
+import {Link as LinkRouter} from 'react-router-dom' 
 
 export default function Carousel(props) {
 
@@ -60,8 +61,8 @@ export default function Carousel(props) {
       </div>
       <div className="Carousel-container">
         <Arrow icon={"./images/arrow-left.svg"} click={previus} />
-        <div className="Carousel-photo">
-          {photos.slice(start, end).map(cityAndName)}
+        <div>
+          <LinkRouter className="Carousel-photo" to="./detail">{photos.slice(start, end).map(cityAndName)}</LinkRouter>
         </div>
         <Arrow icon={"./images/arrow-right.svg"} click={next} />
       </div>
