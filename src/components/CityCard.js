@@ -8,7 +8,7 @@ function CityCard() {
   const [cities, setCities] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:4000/cities/')
+    axios.get('http://localhost:4000/cities/all')
       .then(response => setCities(response.data.response))
   }, [])
 
@@ -24,8 +24,7 @@ function CityCard() {
             <div className="card_content">
               <h2 className="card_title">{city.city}</h2>
               <p className="card_text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                {city.description.slice(0, 120)}...
               </p>
               <LinkRouter to="*" className="btn card_btn">Read More</LinkRouter>
             </div>
