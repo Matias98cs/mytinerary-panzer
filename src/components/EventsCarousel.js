@@ -6,7 +6,7 @@ function EventsCarousel() {
     const [cities, setCities] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities/all')
+        axios.get('http://localhost:4000/cities?city=')
             .then(response => setCities(response.data.response))
     }, [])
 
