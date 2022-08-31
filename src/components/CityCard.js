@@ -12,7 +12,6 @@ function CityCard() {
       .then(response => setCities(response.data.response))
   }, [])
 
-
   const cardCity = (city) => {
     return (
       <div className="cards" key={city.city}>
