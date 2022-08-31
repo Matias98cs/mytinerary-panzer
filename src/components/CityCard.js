@@ -3,7 +3,6 @@ import "../style/CityCards.css";
 import {Link as LinkRouter} from 'react-router-dom'
 
 function CityCard() {
-
   let dataCities = [
     {
       photo: "./images/bariloche.jpg",
