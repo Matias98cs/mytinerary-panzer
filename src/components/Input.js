@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
+import '../style/Cities.css'
 
 export default function Input() {
-    return (
-        <div className='Input-container'>
-            <input type="text" name="" id='input' value=""/>
-                <label for="input">Soy el Input</label>
-            </div>
-    )
+  return (
+    <div className="form-input-text">
+      <input type="text"  id="input"  placeholder="Find city" />
+    </div>
+  );
 }
