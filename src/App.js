@@ -6,7 +6,7 @@ import Cities from './pages/Cities';
 import PageNotFound from './pages/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import NewCity from './pages/NewCity';
-
+import Detail from './components/Detail';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         <Route path='/cities' element={<Cities />} />
         <Route path='/newcity' element={<NewCity/>}/>
         <Route path='*' element={<PageNotFound />} />
+        <Route path='/detail' element={<Detail/>} />
         </Routes>
 
       </WebsiteLayout>
