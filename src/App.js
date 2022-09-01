@@ -7,6 +7,7 @@ import PageNotFound from './pages/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import NewCity from './pages/NewCity';
 import Detail from './components/Detail';
+import EditPage from './pages/EditPage';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
         <Route path='/' element={<Welcome />} />
         <Route path='/cities' element={<Cities />} />
         <Route path='/newcity' element={<NewCity/>}/>
-        <Route path='*' element={<PageNotFound />} />
         <Route path='/cities/:id' element={<Detail/>} />
+        <Route path='/editcity' element={<EditPage />} />
+        <Route path='*' element={<PageNotFound />} />
+
         </Routes>
 
       </WebsiteLayout>
