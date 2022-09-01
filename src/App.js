@@ -19,7 +19,7 @@ function App() {
         <Route path='/cities' element={<Cities />} />
         <Route path='/newcity' element={<NewCity/>}/>
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/detail' element={<Detail/>} />
+        <Route path='/cities/:id' element={<Detail/>} />
         </Routes>
 
       </WebsiteLayout>
