@@ -7,6 +7,8 @@ const page = [
   { name: "Home", to: "/", id:1},
   { name: "Cities", to: "/cities", id:2},
   { name: "New City", to: "/newcity", id:3},
+  { name: "Edit City", to: "/editcity", id:4},
+
 ];
 const link = (page) => (
   <LinkRouter className="nav_item" to={page.to} key={page.id}>
