@@ -3,6 +3,14 @@ header{
 }
 .Detail-container{
     min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_image img{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
 }
 
 footer{
