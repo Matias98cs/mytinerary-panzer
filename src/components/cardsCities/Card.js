@@ -15,8 +15,7 @@ function Card({ cities }) {
             <div className="card_content">
               <h2 className="card_title">{city.city}</h2>
               <p className="card_text">{city.description ? city.description.slice(0,120) : null}...</p>
-              <LinkRouter to="*" className="btn card_btn">Read More</LinkRouter>
-
+              <LinkRouter to={city._id} className="btn card_btn">Read More</LinkRouter>
             </div>
           </div>
         </div>
