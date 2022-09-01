@@ -28,3 +28,9 @@
     /* background: #dcd7c94f; */
     background: url("../../public/images/bariloche.png");
 }
+
+@media (max-width: 425px) {
+    .form-input-text{
+        width: 70%;
+    }
+}
