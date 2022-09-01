@@ -1,9 +1,7 @@
-.NewCity-container{
+.EditPage-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: #dcd7c9b2;
     min-height: 80vh;
-    
+    align-items: center;
 }

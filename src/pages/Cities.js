@@ -1,12 +1,12 @@
 import React from 'react'
-import CityCard from '../components/CityCard'
+import CardsAndFind from '../components/CardsAndFind'
 import '../style/Cities.css'
 
 export default function Cities() {
 
   return (
     <div className="Cities-container">
-      <CityCard />
+      <CardsAndFind/>
     </div>
   )
 }

@@ -6,22 +6,32 @@
 }
 
 .form-input-text input {
-    border: 2px solid #3f4e4f6c;
+    border: 3px solid #3f4e4f6c;
     border-radius: 1rem;
     width: 400px;
     height: 30px;
     padding-left: .4rem;
+    background-color: rgba(255, 255, 255, 0.719);
+    font-weight: bold;
 }
 
 .form-input-text input:focus-visible {
     outline: none;
-    border: 2px solid #A27B5C;
+    border: 3px solid #A27B5C;
 }
 
 .Cities-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
     /* background: #dcd7c94f; */
     background: url("../../public/images/bariloche.png");
+}
+
+@media (max-width: 425px) {
+    .form-input-text{
+        width: 70%;
+    }
 }

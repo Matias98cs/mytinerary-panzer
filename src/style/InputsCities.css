@@ -1,10 +1,63 @@
 .Inputs-container {
-    display: grid;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #2C3639;
+    color: white;
+    padding: 2em;
+    border-radius: 1rem;
+    width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.Inputs-box {
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+    width: 300px;
 }
 
 .Input-Label {
-    display: flex;
-    padding: 1em;
+    width: 200px;
+    text-transform: uppercase;
+}
+
+.Input-value {
+    border-radius: .5rem;
+    border: none;
+    width: 100%;
+    padding: .2rem;
+}
+
+.btn-form {
+    width: 150px;
+    align-self: center;
+    border: none;
+    padding: .5rem;
+    border-radius: .5rem;
+    font-weight: bold;
+    background-color: #DCD7C9;
+}
+
+.btn-form:hover{
+    background-color: #A27B5C;
+    transform: scale(1.1);
+}
+
+@media (max-width:500px){
+    .Inputs-container{
+        width: 250px;
+    }
+    .Inputs-box {
+        width: 250px;
+    }
+}
+@media (max-width:360px){
+    .Inputs-container{
+        width: 200px;
+    }
+    .Inputs-box {
+        width: 200px;
+    }
 }

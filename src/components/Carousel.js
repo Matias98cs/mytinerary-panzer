@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../style/Carousel.css";
 import Arrow from "./Carousel/Arrow";
+import {Link as LinkRouter} from 'react-router-dom' 
 
 export default function Carousel(props) {
+
   const range = props.range
   const limitSlides = (props.slides * range)
   const [start, setStart] = useState(0)
@@ -12,15 +14,17 @@ export default function Carousel(props) {
   const time = props.interval * 1000
 
   const cityAndName = (item) => (
-    <div className="Carousel-card" key={item.id}>
-      <img src={item.url} alt={item.title}/>
-      <p>{item.title}</p>
+    <LinkRouter to={"cities/"+item._id} >
+    <div className="Carousel-card" key={item._id}>
+      <img src={item.photo} alt={item.city} />
+      <p>{item.city}</p>
     </div>
+    </LinkRouter>
   );
 
-  useEffect( () => {
-    let id = setInterval( function () {
-        next()
+  useEffect(() => {
+    let id = setInterval(function () {
+      next()
     }, time)
 
     setIntervalId(id)
@@ -32,7 +36,7 @@ export default function Carousel(props) {
     if (start >= range) {
       setStart(start - range);
       setEnd(end - range);
-    }else {
+    } else {
       setStart(limitSlides - range)
       setEnd(limitSlides)
     }
@@ -40,6 +44,7 @@ export default function Carousel(props) {
   }
 
   function next() {
+
     if (start < limitSlides - range) {
       setStart(start + range);
       setEnd(end + range);
@@ -59,7 +64,7 @@ export default function Carousel(props) {
       <div className="Carousel-container">
         <Arrow icon={"./images/arrow-left.svg"} click={previus} />
         <div className="Carousel-photo">
-        {photos.slice(start, end).map(cityAndName)}  
+          {photos.slice(start, end).map(cityAndName)}
         </div>
         <Arrow icon={"./images/arrow-right.svg"} click={next} />
       </div>
