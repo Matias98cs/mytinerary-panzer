@@ -10,7 +10,6 @@ export default function InputsNewCity() {
   const URL = "http://localhost:4000/cities";
 
   const { city, country, photo, population, fundation, description } = data;
-  console.log(data)
   useEffect(() => {
     axios
       .post(URL, {
