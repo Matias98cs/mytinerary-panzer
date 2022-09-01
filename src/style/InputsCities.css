@@ -44,3 +44,20 @@
     background-color: #A27B5C;
     transform: scale(1.1);
 }
+
+@media (max-width:500px){
+    .Inputs-container{
+        width: 250px;
+    }
+    .Inputs-box {
+        width: 250px;
+    }
+}
+@media (max-width:360px){
+    .Inputs-container{
+        width: 200px;
+    }
+    .Inputs-box {
+        width: 200px;
+    }
+}
