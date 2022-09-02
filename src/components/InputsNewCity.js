@@ -13,12 +13,12 @@ export default function InputsNewCity() {
   useEffect(() => {
     axios
       .post(URL, {
-        city,
-        country,
-        photo,
-        population,
-        fundation,
-        description,
+        city : city,
+        country : country,
+        photo: photo,
+        population : population,
+        fundation : fundation,
+        description:description
       })
       .then((res) => {
         console.log(res);
@@ -26,7 +26,7 @@ export default function InputsNewCity() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [data]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

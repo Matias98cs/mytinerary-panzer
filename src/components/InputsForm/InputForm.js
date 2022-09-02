@@ -14,7 +14,7 @@ function InputForm() {
 
 const inputsRender = (infor) => {
   return (
-    <div className='Inputs-box'>
+    <div className='Inputs-box' key={infor.id}>
       <label className='Input-Label' htmlFor={infor.name} key={infor.id}>
           {infor.name}
       </label>
