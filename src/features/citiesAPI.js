@@ -13,10 +13,20 @@ export const citiesAPI = createApi({
         }),
         getCityName: builder.query({
             query: (city) => `cities?city=${city}`
+        }),
+        getPostNewCity: builder.mutation({
+            query(payload){
+                return{
+                    url: 'cities',
+                    method: 'POST',
+                    body: payload
+                }
+            },
+            invalidatesTags: ['Post'],
         })
     })
 })
 
 
 export default citiesAPI;
-export const {useGetAllcitiesQuery, useGetCityNameQuery} = citiesAPI;
+export const {useGetAllcitiesQuery, useGetCityNameQuery, useGetPostNewCityMutation} = citiesAPI;
