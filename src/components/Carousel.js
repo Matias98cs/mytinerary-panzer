@@ -10,12 +10,11 @@ export default function Carousel(props) {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
-  const photos = props.data
   const time = props.interval * 1000
 
   const cityAndName = (item) => (
-    <LinkRouter to={"cities/"+item._id} >
-    <div className="Carousel-card" key={item._id}>
+    <LinkRouter to={"cities/"+item._id} key={item._id}>
+    <div className="Carousel-card" >
       <img src={item.photo} alt={item.city} />
       <p>{item.city}</p>
     </div>
@@ -64,7 +63,7 @@ export default function Carousel(props) {
       <div className="Carousel-container">
         <Arrow icon={"./images/arrow-left.svg"} click={previus} />
         <div className="Carousel-photo">
-          {photos.slice(start, end).map(cityAndName)}
+          {props.data && props.data.response.slice(start, end).map(cityAndName)}
         </div>
         <Arrow icon={"./images/arrow-right.svg"} click={next} />
       </div>
