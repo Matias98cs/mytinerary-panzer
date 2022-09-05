@@ -10,10 +10,13 @@ export const citiesAPI = createApi({
     endpoints: (builder) => ({
         getAllcities: builder.query({
             query: () => '/cities'
+        }),
+        getCityName: builder.query({
+            query: (city) => `cities?city=${city}`
         })
     })
 })
 
 
 export default citiesAPI;
-export const {useGetAllcitiesQuery} = citiesAPI;
+export const {useGetAllcitiesQuery, useGetCityNameQuery} = citiesAPI;
