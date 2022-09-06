@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Carousel from './Carousel'
-import axios from "axios";
-import apiurl from "../api";
+import Carousel from "./Carousel";
+import {useGetAllcitiesQuery} from "../features/citiesAPI";
 
 function EventsCarousel() {
-    const [cities, setCities] = useState([])
 
-    useEffect(() => {
-        axios.get(`${apiurl}/cities?city=`)
-            .then(response => setCities(response.data.response))
-    }, [])
+  const { data: cities,  error, isLoading, isSuccess, isFailed } = useGetAllcitiesQuery();
 
-
-    return (
-        <Carousel data={cities} range={4} text="Popular Cities" interval={7} slides={3} />
-    )
+  return <Carousel data={cities} range={4} text="Popular Cities" interval={7} slides={3} />;
 }
 
 export default EventsCarousel;

@@ -20,19 +20,19 @@ export default function Detail() {
     }, [])
     
     return (
-        <div className='Detail-container'>
-            <div className="cards" key={cities._id}>
-                <div className="cards_item">
-                    <div className="card">
-                        <div className="card_image">
+        <div className='Detail-container2'>
+            <div className="Detail_cards" key={cities._id}>
+                <div className="Detail_cards_item">
+                    <div className="Detail_card">
+                        <div className="Detail_image">
                             <img src={cities.photo} alt={cities.city} />
                         </div>
-                        <div className="card_content">
-                            <h2 className="card_title">{cities.city}</h2>
-                            <h2>{cities.country}</h2>
-                            <p className="card_text">{cities.description ? cities.description.slice(0, 120) : null}...</p>
-                            <p>Population:{cities.population}</p>
-                            <p>Fundation:{date.getFullYear()}</p>
+                        <div className="Detail_content">
+                            <h2 className="Detail_card_title">{cities.city}</h2>
+                            <h3>Country: {cities.country}</h3>
+                            <p className='Detail-Text'>Population: {cities.population}</p>
+                            <p className='Detail-Text'>Fundation: {date.getFullYear()}</p>
+                            <p className='Detail-Text'>Description: {cities.description ? cities.description.slice(0, 120) : null}...</p>
                             <LinkRouter to='/cities' className="btn card_btn">Go back</LinkRouter>
                         </div>
                     </div>

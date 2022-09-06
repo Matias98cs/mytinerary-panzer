@@ -13,7 +13,8 @@
   }
 
   .card_image img{
-    height: 100%;
+    width: 360px;
+    height: 350px;
   }
   
   .btn{
