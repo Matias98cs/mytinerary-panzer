@@ -1,0 +1,9 @@
+.Form-editCity {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.Form-editCity input {
+    width: 400px;
+}
