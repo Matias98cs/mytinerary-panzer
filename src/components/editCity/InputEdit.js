@@ -1,31 +1,29 @@
 import React from "react";
 
 function InputEdit({ city }) {
-  let cityValues = city?.response;
   return (
     <>
      
-      <input name="_id" defaultValue={cityValues?._id} />
-      <input type="text" name="city" defaultValue={cityValues?.city} />
-      <input type="text" name="country" defaultValue={cityValues?.country} />
-      <input type="text" name="photo" defaultValue={cityValues?.photo} />
+      <input name="_id" defaultValue={city?._id} />
+      <input type="text" name="city" defaultValue={city?.city} />
+      <input type="text" name="country" defaultValue={city?.country} />
+      <input type="text" name="photo" defaultValue={city?.photo} />
       <input
         type="number"
         name="population"
-        defaultValue={cityValues?.population}
+        defaultValue={city?.population}
       />
       <input
-        type="text"
+        type="date"
         name="fundation"
-        defaultValue={cityValues?.fundation}
+        defaultValue={city?.fundation ? new Date(city?.fundation).toISOString().substring(0,10) : null}
       />
-       <textarea
-        type="text"
+       <input
         rows="4"
         cols="50"
         name="description"
-        defaultValue={cityValues?.description}
-        ></textarea>
+        defaultValue={city?.description}
+        ></input>
     </>
   );
 }

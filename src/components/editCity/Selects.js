@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useGetAllcitiesQuery } from "../../features/citiesAPI";
 
 function Selects({ takeValueSelect }) {
   const { data: cities } = useGetAllcitiesQuery();
+
 
   const showOptions = (cityItem) => {
     return (

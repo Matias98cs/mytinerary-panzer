@@ -5,6 +5,7 @@ import "../../style/FormEditCity.css";
 import {
   useGetUpdateCityMutation,
   useGetCityByIdQuery,
+  useGetAllcitiesQuery
 } from "../../features/citiesAPI";
 
 function EditForm() {
@@ -31,7 +32,7 @@ function EditForm() {
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     setValueData(values);
-    setValueSelect("");
+    setValueSelect("")
     formCities.reset();
   };
 
@@ -43,7 +44,7 @@ function EditForm() {
       ref={formRef}
     >
       <Selects takeValueSelect={takeValueSelect} />
-      <InputEdit city={city} />
+      <InputEdit city={city && city.response} />
       <button type="submit">Edit City</button>
     </form>
   );
