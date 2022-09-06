@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;
+    padding: 3em;
+    background-color: #DCD7C9;
+    border-radius: 1.5rem;
 }
 
 .Form-editCity input {

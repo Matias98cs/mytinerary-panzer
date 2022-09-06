@@ -5,7 +5,7 @@ function InputEdit({ city }) {
   return (
     <>
      
-      <input disabled name="_id" defaultValue={cityValues?._id} />
+      <input name="_id" defaultValue={cityValues?._id} />
       <input type="text" name="city" defaultValue={cityValues?.city} />
       <input type="text" name="country" defaultValue={cityValues?.country} />
       <input type="text" name="photo" defaultValue={cityValues?.photo} />
