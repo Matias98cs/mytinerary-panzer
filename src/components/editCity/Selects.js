@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Selects() {
-  const [cities, setCities] = useState([]);
+import { useGetAllcitiesQuery } from "../../features/citiesAPI";
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/cities?city=")
-      .then((resp) => setCities(resp.data.response))
-      .catch((error) => console.log(error));
-  }, []);
+function Selects({takeValueSelect}) {
+  const { data: cities} = useGetAllcitiesQuery()
 
 
   const showOptions = (cityItem) => {
-    return <option value={cityItem.value}>{cityItem.city}</option>;
+    return <option value={cityItem._id} key={cityItem._id} >{cityItem.city}</option>;
   };
 
+  const handleChange = e => {
+    let valueSelect = e.target.value
+    takeValueSelect(valueSelect)
+  }
+
   return (
-    <form>
-      <select>
+      <select onChange={handleChange}>
         <option>Select City</option>
-        {cities.map(showOptions)}
+        {cities && cities.response.map(showOptions)}
       </select>
-    </form>
   );
 }
 
