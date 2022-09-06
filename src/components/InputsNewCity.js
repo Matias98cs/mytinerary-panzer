@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import "../style/InputsCities.css";
 import InputForm from "./InputsForm/InputForm";
+import apiurl from "../api";
 
 export default function InputsNewCity() {
   const formRef = useRef();
   const [data, setData] = useState([]);
 
-  const URL = "http://localhost:4000/cities";
+  const URL = `${apiurl}/cities`;
 
   const { city, country, photo, population, fundation, description } = data;
   useEffect(() => {

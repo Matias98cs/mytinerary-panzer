@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import apiurl from "../../api";
 
 function Selects() {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/cities?city=")
+      .get(`${apiurl}/cities?city=`)
       .then((resp) => setCities(resp.data.response))
       .catch((error) => console.log(error));
   }, []);

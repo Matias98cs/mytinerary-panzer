@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Carousel from './Carousel'
 import axios from "axios";
+import apiurl from "../api";
 
 function EventsCarousel() {
     const [cities, setCities] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities?city=')
+        axios.get(`${apiurl}/cities?city=`)
             .then(response => setCities(response.data.response))
     }, [])
 

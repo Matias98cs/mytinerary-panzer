@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "./cardsCities/Card";
 import Input from "./Input";
+import apiurl from "../api";
 
 function CardsAndFind() {
   const [cities, setCities] = useState([]);
   const [find, setFind] = useState("");
-  const URL = "http://localhost:4000/cities?city=";
+  const URL = `${apiurl}/cities?city=`;
 
   useEffect(() => {
     axios
