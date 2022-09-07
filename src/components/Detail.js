@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { Link as LinkRouter} from "react-router-dom";
 import { useGetCityByIdQuery } from '../features/citiesAPI';
 import { useGetAllItinerariesQuery } from '../features/itineraryAPI';
-import ItinerariesCity from './details/ItinerariesCity';
+import Itinerarty from './Itinerary'
 
 export default function Detail() {
     const { id } = useParams()
@@ -32,7 +32,9 @@ export default function Detail() {
                     </div>
                 </div>
             </div>
-            <ItinerariesCity findItinerary={findItinerary} />
+            {findItinerary?.map(item => 
+                <Itinerarty item={item} key={item._id} />
+            )}
         </div>
     )
 }

@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Activity from "./Activity";
+import Comments from "./Comments";
 
-function Itinerary() {
+function Itinerary({ item }) {
+
   return (
-    <div>
-        <p>Name: Caminata por ahi</p>
-        <p>user: Matias</p>
-        <p>city: Cordoba</p>
-        <p>price: $5</p>
-        <p>likes: 54</p>
-        <p>tags: #Matias, #javier</p>
-        <p>duration: 120</p>
-    </div>
-  )
+    <>
+      <div key={item._id}>
+        <p>Name:{item.name}</p>
+        <p>Duration:{item.duration}</p>
+        <p>Price: ${item.price}</p>
+      </div>
+      <Activity data={item._id} />
+    </>
+  );
 }
 
-export default Itinerary
+export default Itinerary;
