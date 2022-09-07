@@ -5,9 +5,6 @@ export default configureStore({
     reducer: {
         [citiesAPI.reducerPath] : citiesAPI.reducer
     },
-    middleware: (getAllCities) => getAllCities({
-        immutableCheck: false,
-        serializableCheck: false
-    })
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(citiesAPI.middleware)
   })
 

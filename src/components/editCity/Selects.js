@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import apiurl from "../../api";
+import { useGetAllcitiesQuery } from "../../features/citiesAPI";
 
-function Selects() {
-  const [cities, setCities] = useState([]);
-
+function Selects({ takeValueSelect }) {
+  const { data: cities } = useGetAllcitiesQuery();
   useEffect(() => {
     axios
       .get(`${apiurl}/cities?city=`)
@@ -12,18 +10,24 @@ function Selects() {
       .catch((error) => console.log(error));
   }, []);
 
-
   const showOptions = (cityItem) => {
-    return <option value={cityItem.value}>{cityItem.city}</option>;
+    return (
+      <option value={cityItem._id} key={cityItem._id}>
+        {cityItem.city}
+      </option>
+    );
+  };
+
+  const handleChange = (e) => {
+    let valueSelect = e.target.value;
+    takeValueSelect(valueSelect);
   };
 
   return (
-    <form>
-      <select>
-        <option>Select City</option>
-        {cities.map(showOptions)}
-      </select>
-    </form>
+    <select onChange={handleChange}>
+      <option>Select City</option>
+      {cities && cities.response.map(showOptions)}
+    </select>
   );
 }
 
