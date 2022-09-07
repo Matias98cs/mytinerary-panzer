@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from './cardsCities/Card';
 import { Link as LinkRouter} from "react-router-dom";
+import apiurl from '../api';
 
 export default function Detail() {
     const { id } = useParams()
@@ -12,7 +13,7 @@ export default function Detail() {
     let date = new Date(cities.fundation)
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/cities/${id}`)
+        axios.get(`${apiurl}/cities/${id}`)
             .then(response => {
                 setCityData(response.data.response)
             })
