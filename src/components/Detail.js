@@ -4,15 +4,15 @@ import { useParams } from "react-router-dom"
 import { Link as LinkRouter} from "react-router-dom";
 import { useGetCityByIdQuery } from '../features/citiesAPI';
 import { useGetAllItinerariesQuery } from '../features/itineraryAPI';
+import ItinerariesCity from './details/ItinerariesCity';
 
 export default function Detail() {
     const { id } = useParams()
     const {data :cities} = useGetCityByIdQuery(id)
     const {data : itinerary} = useGetAllItinerariesQuery(id)
     let newCity = cities?.response
-    console.log(itinerary)
     let date = new Date(newCity?.fundation)
-
+    let findItinerary = itinerary?.response
     return (
         <div className='Detail-container2'>
             <div className="Detail_cards" key={newCity?._id}>
@@ -32,6 +32,7 @@ export default function Detail() {
                     </div>
                 </div>
             </div>
+            <ItinerariesCity findItinerary={findItinerary} />
         </div>
     )
 }
