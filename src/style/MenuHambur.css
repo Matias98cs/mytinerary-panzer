@@ -21,7 +21,7 @@ nav{
 
 .nav_item{
     text-decoration: none;
-    padding: .5rem;
+    padding: .2rem;
     border-radius: .5rem;
     background-color:#A27B5C ;
     color: white;
@@ -91,5 +91,12 @@ nav{
     }
     .nav_label img{
         width: 55px;
+    }
+}
+
+@media (max-width: 400px){
+    .nav_item{
+        padding: 0;
+        width: 50%;
     }
 }
