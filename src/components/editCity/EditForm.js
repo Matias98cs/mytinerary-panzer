@@ -43,6 +43,7 @@ function EditForm() {
       onSubmit={handleSubmit}
       ref={formRef}
     >
+      <p>Cities</p>
       <Selects takeValueSelect={takeValueSelect} />
       <InputEdit city={city && city.response} />
       <button type="submit">Edit City</button>
