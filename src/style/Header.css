@@ -20,6 +20,8 @@ header{
 
 .Header-logo {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Header-logo h2 {
