@@ -2,18 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "./cardsCities/Card";
 import Input from "./Input";
+import {useGetCityNameQuery, useGetAllcitiesQuery} from '../features/citiesAPI'
 
 function CardsAndFind() {
-  const [cities, setCities] = useState([]);
   const [find, setFind] = useState("");
-  const URL = "http://localhost:4000/cities?city=";
 
-  useEffect(() => {
-    axios
-      .get(`${URL}${find}`)
-      .then((response) => setCities(response.data.response))
-      .catch((error) => console.log(error));
-  }, [find]);
+  const { data: cities} = useGetAllcitiesQuery()
+  const {data: cityFind} = useGetCityNameQuery(find)
+  
   function inputSearch(name) {
     setFind(name);
   }
@@ -21,7 +17,7 @@ function CardsAndFind() {
   return (
     <>
       <Input inputSearch={inputSearch} />
-      <Card cities={cities} />
+      <Card cities={cityFind ? cityFind : cities } />
     </>
   );
 }

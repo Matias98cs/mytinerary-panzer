@@ -4,9 +4,11 @@ import "../../style/CityCards.css";
 
 
 function Card({ cities }) {
+
+
   const showCard = (city) => {
     return (
-      <div className="cards" key={city.city}>
+      <div className="cards" key={city._id}>
         <div className="cards_item">
           <div className="card">
             <div className="card_image">
@@ -25,7 +27,7 @@ function Card({ cities }) {
 
   return (
     <div className="cityCard-container">
-        {cities.map(showCard)}
+        {cities && cities.response.map(showCard)}
     </div>
   );
 }
