@@ -1,0 +1,51 @@
+.Itinerary-container{
+    display: flex;
+    width: 100%;
+    background-color: #DCD7C9;
+    flex-direction: column;
+}
+
+.Itinerary-container:nth-child(2n + 2){
+    background-color: #3F4E4F;
+    color: #DCD7C9;
+}
+
+.itinerary-title {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.itinerary-activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.itinerar-activity-photo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.itinerar-activity-photo img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5em 10px 5em 10px;
+}
+
+.itinerary-price{
+    padding: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.itinerary-price p {
+    letter-spacing: 1px;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}

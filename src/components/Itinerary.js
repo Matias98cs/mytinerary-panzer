@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Activity from "./Activity";
-import Comments from "./Comments";
+import '../style/Itinerary.css'
 
 function Itinerary({ item }) {
 
   return (
-    <>
-      <div key={item._id}>
-        <p>Name:{item.name}</p>
-        <p>Duration:{item.duration}</p>
-        <p>Price: ${item.price}</p>
+      <div className="Itinerary-container" key={item._id}>
+        <h2>Itinerarty</h2>
+        <div className="itinerary-title">
+          <p>Name:{item.name}</p>
+        </div>
+        <Activity data={item._id} />
+        <div className="itinerary-price">
+          <p>Duration: {item.duration}hs</p>
+          <p>Price: ${item.price}</p>
+        </div>
       </div>
-      <Activity data={item._id} />
-    </>
   );
 }
 

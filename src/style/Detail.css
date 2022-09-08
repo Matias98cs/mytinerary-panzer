@@ -1,39 +1,33 @@
-header{
-    min-height: 7vh;
-    padding: 0;
-}
 
 .Detail-container2{
     min-height: 79.5vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+    align-items: center;    
 }
 
 .Detail_cards{
-    width:75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcd7c9af;
+    padding-top: 2em;
 }
 
 .Detail_cards_item{
-    height: 100%;
     display: flex;
     justify-content: center;
 }
 
 .Detail_card{
-    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     border-radius: 0.5rem;
-    background-color: #dcd7c9af;
     overflow: hidden;
     padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .Detail_image{
@@ -44,23 +38,20 @@ header{
     
 }
 
+
 .Detail_image img{
     width: 100%;
     height: 95%;
     object-fit: contain;
-    padding-top: 1rem;
-    /* border-radius: 30em 50px 30em 50px; */
 }
 .btn{
     width: 90%;
     align-self: center;
 }
 .Detail_content {
-    width: 600px;
-    height: 700px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .Detail-Text{
@@ -89,7 +80,6 @@ footer{
     }
     .Detail_content{
         height: 90%;
-        width: 1000px;
         justify-content: space-around;
     }
 
@@ -118,7 +108,6 @@ footer{
         width: 500px;
     }
     .Detail_content{
-        width: 1000px;
         justify-content: space-around;
     }
 
