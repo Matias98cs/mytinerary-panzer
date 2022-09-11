@@ -2,8 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url('../../public/images/pexels-fauxels-3183132.jpg');
+    background-size: cover;
+    background-position: center center center centers;
     flex-direction: column;
-    background: #dcd7c9b2;
+    background-repeat: no-repeat;
     min-height: 80vh;
+    gap: 2em;
     
+}
+
+.NewCity-container h2 {
+    color: #2c3639;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #dcd7c9c5 ;
+    padding: 5px;
 }
