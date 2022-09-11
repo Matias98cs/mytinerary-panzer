@@ -9,15 +9,16 @@
     background-repeat: no-repeat;
     min-height: 80vh;
     gap: 2em;
-    
+}
+
+.newcity-title {
+    background-color: #dcd7c9c5 ;
+    padding: 8px 0 8px 0;
+    width: 100%;
 }
 
 .NewCity-container h2 {
     color: #2c3639;
-    font-size: 3rem;
-    padding: 0;
     margin: 0;
-    width: 100%;
-    background-color: #dcd7c9c5 ;
-    padding: 5px;
+    font-size: 3rem;
 }
