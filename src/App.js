@@ -8,7 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import NewCity from './pages/NewCity';
 import Detail from './components/Detail';
 import EditPage from './pages/EditPage';
-import SignUp from './components/SignUp';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (

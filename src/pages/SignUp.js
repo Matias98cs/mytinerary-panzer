@@ -1,5 +1,5 @@
 import React from 'react'
-import SignUpGoogle from './SignUpGoogle'
+import SignUpGoogle from '../components/SignUpGoogle'
 
 function SignUp() {
   return (
