@@ -6,7 +6,7 @@ function Itinerary({ item }) {
 
   return (
       <div className="Itinerary-container" key={item._id}>
-        <h2>Itinerarty</h2>
+        <h2>Itinerary</h2>
         <div className="itinerary-title">
           <p>Name:{item.name}</p>
         </div>
