@@ -5,4 +5,23 @@
     min-height: 80vh;
     align-items: center;
     -color: #DCD7C9;
+    background: url("../../public/images/pexels-cottonbro-3944419.jpg");
+    background-size: cover;
+    background-position: center center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    gap: 2em;
+}
+
+.EditPage-title {
+    background-color: #a27b5cb7;
+    width: 100%;
+    padding: 8px 0 8px 0;
+
+}
+
+.EditPage-container h2 {
+    color: #2C3639;
+    font-size: 3rem;
+    margin: 0;
 }
