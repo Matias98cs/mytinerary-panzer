@@ -43,8 +43,8 @@ export default function Menu() {
             open
                 ?
                 <ul>
-                  <li>Profile</li>
                   <li>Log In</li>
+                  <LinkRouter to='auth/signup'>Sign Up</LinkRouter>
                 </ul>
                 :
                 null
