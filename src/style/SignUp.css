@@ -1,0 +1,39 @@
+.SignUp-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    gap: 2em;
+}
+
+.SignUp-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    background-color: #eee;
+    width: 500px;
+    height: 350px;
+    border-radius: 1rem;
+    align-items: center;
+
+}
+
+.sigup-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
+
+.SignUp-container form label {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    width: 300px;
+}
+.SignUp-container form label input {
+}
