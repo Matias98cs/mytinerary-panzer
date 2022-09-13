@@ -3,11 +3,9 @@ import * as jose from "jose";
 
 function SignUpGoogle() {
   const btnDiv = useRef(null);
-  console.log(btnDiv.current);
 
   async function handleCredentialResponse(response){
     let userObject = jose.decodeJwt(response.credential)
-    console.log(userObject)
 
     let data = {
         name: userObject.name,
