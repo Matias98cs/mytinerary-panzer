@@ -51,6 +51,88 @@ h2 {
     font-size: 2rem;
 }
 
+.itinerary-comment-container{
+    background-color:rgba(128, 128, 128, 0.496);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+    overflow-y: auto;
+    align-self: center;
+    border-radius: 40px;
+    margin-bottom: 16px;
+}
+
+.itinerary-comment-users{
+    display: flex;
+    width: 85vw;
+    border-radius: 20px;
+    padding: .5rem;
+    margin: .5rem;
+    box-shadow: 0 3px 3px 0 rgb (0 0 0 / 60%);
+    background-color: rgba(73, 73, 73, 0.478);
+    align-self: center;
+    gap: 1rem;
+}
+.itinerary-comment-container h3{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.itinerary-profile{
+    display: flex;
+    align-items: center;
+}
+
+.itinerary-profile img{
+    border-radius: 360px;
+    border:1px solid #a27b5ca2;
+    height: 50px;
+    object-fit: cover;
+}
+
+.itinerary-comment-button{
+    padding: .5rem;
+}
+
+.btn-comment{
+    color: white;
+    padding: 0.6rem;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor:pointer;
+    border: none;
+    background: #A27B5C;
+    text-decoration: none;
+    text-align: center;    
+}
+
+#comment-input{
+    width: 84vw;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgba(73, 73, 73, 0.148);
+    font-weight: bolder;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.63);
+    padding: .3rem;
+}
+
+.comment-input-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendComment{
+    font-size: 30px;
+    cursor: pointer;
+}
+
 @media (max-width: 375px){
     .itinerar-activity-photo img{
         width: 280px;

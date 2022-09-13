@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 function Comments() {
   return (
@@ -6,4 +6,4 @@ function Comments() {
   )
 }
 
-export default Comments
+export default Comments */
