@@ -9,6 +9,7 @@ import NewCity from './pages/NewCity';
 import Detail from './components/Detail';
 import EditPage from './pages/EditPage';
 import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/cities/:id' element={<Detail/>} />
         <Route path='/editcity' element={<EditPage />} />
         <Route path='/auth/signup' element={<SignUp />} />
+        <Route path='/auth/signin' element= {<SignIn />} />
         <Route path='*' element={<PageNotFound />} />
 
         </Routes>

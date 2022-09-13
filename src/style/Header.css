@@ -72,6 +72,9 @@ header{
     align-items: center;
     border-radius: .5rem;
 }
+.Header-dropdown a{
+    text-decoration: none;
+}
 
 .Header-dropdown ul {
     display: flex;
@@ -82,12 +85,12 @@ header{
     gap: .5rem;
 }
 
-.Header-dropdown ul li {
+.Header-dropdown ul a {
     color: #3F4E4F;
     cursor: pointer;
 }
 
-.Header-dropdown ul li:hover {
+.Header-dropdown ul a:hover {
     color: #A27B5C;
 }
 @media (max-width:1980px){

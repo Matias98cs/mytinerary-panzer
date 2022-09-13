@@ -43,7 +43,7 @@ export default function Menu() {
             open
                 ?
                 <ul>
-                  <li>Log In</li>
+                  <LinkRouter to='auth/signin'>Sign In</LinkRouter>
                   <LinkRouter to='auth/signup'>Sign Up</LinkRouter>
                 </ul>
                 :
