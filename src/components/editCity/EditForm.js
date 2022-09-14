@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Selects from "./Selects";
 import InputEdit from "./InputEdit";
 import "../../style/FormEditCity.css";
 import {
   useGetUpdateCityMutation,
-  useGetCityByIdQuery,
-  useGetAllcitiesQuery,
+  useGetCityByIdQuery
 } from "../../features/citiesAPI";
 import Alerts from "../Alert/Alerts";
 
@@ -31,7 +30,7 @@ function EditForm() {
     }else{
       UpdateNewCity(values)
         .unwrap()
-        .then((resp) => setError(resp.message))
+        .then((resp) => setError("Edited city"))
         .catch((error) => setError(error.message));
       setValueSelect("");
       formCities.reset();
