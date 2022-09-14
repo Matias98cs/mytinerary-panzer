@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../style/InputsCities.css";
 import InputForm from "./InputsForm/InputForm";
 import { useGetPostNewCityMutation } from "../features/citiesAPI";
@@ -15,7 +15,7 @@ export default function InputsNewCity() {
     addNewPost(values)
       .unwrap()
       .then((succes) => {
-        setError(succes.message)
+        setError("City created")
         formCities.reset()
       })
       .catch((error) => {
