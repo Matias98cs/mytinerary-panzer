@@ -28,7 +28,7 @@ function SignUpGoogle() {
       });
       google.accounts.id.renderButton(
         btnDiv.current,
-        { theme: "outline", size: "medium", text: 'signup_with' } 
+        {  size: "medium", text: "signup_with", 	shape: "circle", locale: "en"} 
       );
   }, []);
 
