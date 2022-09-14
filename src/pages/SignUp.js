@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import SignUpGoogle from "../components/SignUpGoogle";
 import "../style/SignUp.css";
 import { useGetPostNewUserMutation } from "../features/usersAPI";
@@ -7,43 +7,44 @@ import Alerts from "../components/Alert/Alerts";
 function SignUp() {
 
   const formRef = useRef();
-  const [data, setData] = useState([]);
   const [addNewUser, response] = useGetPostNewUserMutation();
   const [error, setError] = useState("");
+  const formSignUp = document.querySelector("#form-signup");
   
-  function sendUser() {
-    addNewUser(data)
+  function sendUser(values) {
+    addNewUser(values)
     .unwrap()
     .then((succes)=> {
-      setError(succes.message)
+      setError("User created")
     })
-    .catch ((error) => setError(error.message))
+    .catch ((error) => setError(error.data.message))
   }
 
   const handleSubmit = (e) =>{
     e.preventDefault()
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
-    values.from = 'from'
-    if(values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == ""){
+    values.from = 'form'
+    if(values.country == "" || values.lastname == "" || values.mail == "" || values.name == "" || values.password == "" || values.photo == "" || values.role == ""){
       setError("Please enter all data")
+    }else{
+      sendUser(values)
+      formSignUp.reset()
+
     }
-    setData(values);
-    sendUser()
   }
   
   return (
     <div className="SignUp-container">
       <h2 className="signup-title">Sign Up</h2>
-      <form onSubmit={handleSubmit} ref={formRef}>
-        {/* <div className="sigup-inputs"> */}
+      <form onSubmit={handleSubmit} ref={formRef} id="form-signup">
           <label>
             Name
-            <input name="name"/>
+            <input name="name" type="text"/>
           </label>
           <label>
             Last Name
-            <input name="lastname"/>
+            <input name="lastname" type="text"/>
           </label>
           <label>
             Photo
@@ -51,15 +52,15 @@ function SignUp() {
           </label>
           <label>
             Country
-            <input name="country"/>
+            <input name="country" type="text"/>
           </label>
           <label>
             Email
-            <input name="mail"/>
+            <input name="mail" type="email"/>
           </label>
           <label>
             Password
-            <input name="password"/>
+            <input name="password" type="password"/>
           </label>
           <select name="role">
             <option defaultChecked>Choose role</option>
@@ -67,7 +68,6 @@ function SignUp() {
             <option value="admin">Admin</option>
           </select>
             <button type="submit">Create</button>          
-        {/* </div> */}
       </form>
       <SignUpGoogle />
       <Alerts error={error}/>
