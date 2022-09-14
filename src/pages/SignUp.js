@@ -2,28 +2,32 @@ import React, { useEffect, useRef, useState } from "react";
 import SignUpGoogle from "../components/SignUpGoogle";
 import "../style/SignUp.css";
 import { useGetPostNewUserMutation } from "../features/usersAPI";
+import Alerts from "../components/Alert/Alerts";
 
 function SignUp() {
 
   const formRef = useRef();
   const [data, setData] = useState([]);
   const [addNewUser, response] = useGetPostNewUserMutation();
+  const [error, setError] = useState("");
   
   function sendUser() {
     addNewUser(data)
     .unwrap()
-    .then((succes)=> console.log(succes))
-    .catch ((error) => console.log(error))
+    .then((succes)=> {
+      setError(succes.message)
+    })
+    .catch ((error) => setError(error.message))
   }
-
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     values.from = 'from'
-    console.log(values)
+    if(values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == "" || values.country == ""){
+      setError("Please enter all data")
+    }
     setData(values);
     sendUser()
   }
@@ -66,7 +70,7 @@ function SignUp() {
         {/* </div> */}
       </form>
       <SignUpGoogle />
-      
+      <Alerts error={error}/>
     </div>
   );
 }
