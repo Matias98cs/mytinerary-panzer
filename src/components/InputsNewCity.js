@@ -9,28 +9,31 @@ export default function InputsNewCity() {
   const formRef = useRef();
   const [data, setData] = useState([]);
 
-  const { city, country, photo, population, fundation, description } = data;
 
-  const [addNewPost, response] = useGetPostNewCityMutation()
+  const [addNewPost] = useGetPostNewCityMutation()
+  const formCities = document.querySelector("#form-cities");
 
-  useEffect( () => {
+  function sendCity() {
     addNewPost(data)
     .unwrap()
     .then((succes) => console.log(succes))
-    .catch((error) => console.log(error))
-    
-  },[data])
+    .catch((error) => {
+      console.log(error.data.message)
+    })
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formCities = document.querySelector("#form-cities");
 
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     setData(values);
+    sendCity();
     formCities.reset();
   };
 
+  console.log(data)
 
   return (
     <>
