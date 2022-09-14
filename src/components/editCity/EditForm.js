@@ -27,7 +27,7 @@ function EditForm() {
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     if(values.city == "" || values.country == "" || values.population == "" || values.fundation == "" || values.photo == ""){
-      setError('Algun campo esta vacio')
+      setError('Please enter all data')
     }else{
       UpdateNewCity(values)
         .unwrap()
