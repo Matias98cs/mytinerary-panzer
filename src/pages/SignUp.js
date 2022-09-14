@@ -30,37 +30,37 @@ function SignUp() {
   
   return (
     <div className="SignUp-container">
-      <h2>Sign Up</h2>
+      <h2 className="signup-title">Sign Up</h2>
       <form onSubmit={handleSubmit} ref={formRef}>
         {/* <div className="sigup-inputs"> */}
           <label>
-            name
+            Name
             <input name="name"/>
           </label>
           <label>
-            last Name
+            Last Name
             <input name="lastname"/>
           </label>
           <label>
-            photo
+            Photo
             <input name="photo" />
           </label>
           <label>
-            country
+            Country
             <input name="country"/>
           </label>
           <label>
-            email
+            Email
             <input name="mail"/>
           </label>
           <label>
-            password
+            Password
             <input name="password"/>
           </label>
           <select name="role">
             <option defaultChecked>Choose role</option>
-            <option value="user">user</option>
-            <option value="admin">admin</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
           </select>
             <button type="submit">Create</button>          
         {/* </div> */}
