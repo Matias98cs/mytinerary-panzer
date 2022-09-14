@@ -5,6 +5,17 @@
     align-items: center;
     min-height: 80vh;
     gap: 2em;
+    background-image: url(https://previews.123rf.com/images/sebra/sebra1703/sebra170300236/74246865-concepto-de-planificaci%C3%B3n-de-viajes-en-el-mapa.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem 0;
+}
+
+.SignUp-container h2{
+    width: 100%;
+    padding: 6px 0;
+    color: white;
+    background-color: #3f4e4fbc;
 }
 
 .SignUp-container form {
@@ -12,12 +23,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 2em;
-    background-color: #eee;
+    background-color: #3f4e4fbc;
     width: 500px;
-    height: 350px;
+    height: 550px;
     border-radius: 1rem;
     align-items: center;
-
+    color: white;
+    padding: .5rem;
 }
 
 .sigup-inputs{
@@ -28,12 +40,47 @@
     align-items: center;
 }
 
-
 .SignUp-container form label {
     display: flex;
     flex-direction: column;
     gap: .2rem;
     width: 300px;
 }
-.SignUp-container form label input {
+
+.SignUp-container form select{
+    background-color: #3f4e4fbc;
+    color: white;
+    border: none;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.SignUp-container form select:hover{
+    background-color: #dcd7c9e8;
+    color: black ;
+    font-weight: bolder;
+}
+
+.SignUp-container form button {
+    background-color: #3f4e4fbc;
+    color: white;
+    border: none;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+}
+.SignUp-container form button:hover{
+    background-color: #dcd7c9e8;
+    color: black ;
+    font-weight: bolder;
+}
+
+@media (max-width:550px){
+    .SignUp-container form{
+        width:85vw
+    }
+
+    .SignUp-container form label{
+        width: 70vw;
+    }
 }
