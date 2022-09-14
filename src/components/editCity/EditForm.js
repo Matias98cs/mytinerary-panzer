@@ -10,32 +10,28 @@ import {
 
 function EditForm() {
   const formRef = useRef();
-  const [valueSelect, setValueSelect] = useState();
-  const [valueData, setValueData] = useState([]);
-  const { data: city } = useGetCityByIdQuery(valueSelect);
+  const [valueSelect, setValueSelect] = useState("");
+  let { data: city } = useGetCityByIdQuery(valueSelect);
   const [UpdateNewCity] = useGetUpdateCityMutation();
-  useEffect(() => {
-    UpdateNewCity(valueData)
-      .unwrap()
-      .then((resp) => console.log(resp))
-      .catch((error) => console.log(error));
-  }, [valueData]);
 
   function takeValueSelect(value) {
     setValueSelect(value);
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const formCities = document.querySelector("#form-cities");
 
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
-    setValueData(values);
-    setValueSelect("")
+    UpdateNewCity(values)
+      .unwrap()
+      .then((resp) => console.log(resp))
+      .catch((error) => console.log(error));
+    setValueSelect("");
     formCities.reset();
   };
-
+  
   return (
     <form
       className="Form-editCity"
