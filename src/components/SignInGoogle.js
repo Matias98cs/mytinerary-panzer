@@ -23,7 +23,6 @@ function SingInGoogle() {
         singInUser(data)
         .unwrap()
         .then((succes)=> {
-            console.log(succes)
             localStorage.setItem('user', JSON.stringify(succes.response.user))
             navigate("/", {replace: true})
             window.location.reload()

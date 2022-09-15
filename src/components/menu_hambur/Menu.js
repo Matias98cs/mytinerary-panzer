@@ -57,7 +57,6 @@ export default function Menu() {
     signoutUser(mail)
       .unwrap()
       .then(succes => {
-        console.log(succes)
         setLogged(false)
         localStorage.removeItem('user')
         navigate("/", {replace: true})
