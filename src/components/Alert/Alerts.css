@@ -1,5 +1,5 @@
 .Container-message {
-    background-color: rgba(0, 128, 0, 0.61);
+    background-color: rgba(45, 66, 45, 0.61);
     width: 350px;
     display: flex;
     justify-content: center;
@@ -16,19 +16,7 @@
     font-size: 3rem;
 }
 
-.message-error {
-    background-color: red;
-    height: 35px;
-    display: flex;
-    padding: 5px 10px 5px 10px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    letter-spacing: 1px;
-    border-radius: 1rem;
-    font-size: 1.2rem;
-}
+
 
 #msjAnimation{
 	color: #fff;
@@ -58,6 +46,6 @@
 	100% { transform:translate(0,0) }
 }
 #msjAnimation:hover{
-	background:#5ed80d77;
+	background:#4e5e4377;
 	color: #fff;
 }

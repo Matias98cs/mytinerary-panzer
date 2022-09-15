@@ -7,7 +7,6 @@ import Alerts from "./Alert/Alerts";
 export default function InputsNewCity() {
   const formRef = useRef();
   const [error, setError] = useState("");
-  const [succes, setSucces] = useState("")
 
   const [addNewPost] = useGetPostNewCityMutation();
   const formCities = document.querySelector("#form-cities");
@@ -16,7 +15,7 @@ export default function InputsNewCity() {
     addNewPost(values)
       .unwrap()
       .then((succes) => {
-        setSucces("City created")
+        setError("City created")
         formCities.reset()
       })
       .catch((error) => {
@@ -33,7 +32,6 @@ export default function InputsNewCity() {
       setError('Please enter all data')
     }else{
       sendCity(values);
-      setError("")
     }
   };
 
@@ -50,7 +48,7 @@ export default function InputsNewCity() {
           Send
         </button>
       </form>
-        <Alerts succes={succes} error={error}/>
+      <Alerts error={error}/>
     </>
   );
 }

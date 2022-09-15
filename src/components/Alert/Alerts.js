@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./Alerts.css";
 
-function Alerts({ succes, error }) {
-  const [msgError, setmsgError] = useState("");
-  const [msgSucces, setmsgSucces] = useState("");
+function Alerts({ error }) {
+    const [msj, setMsj] = useState("")
 
-  useEffect(() => {
-    setmsgError(error)
-    setmsgSucces(succes)
-  },[succes, error])
+    useEffect(() => {
+        setMsj(error)
+    }, [error])
 
-  const showMessage = () => {
-    if (msgSucces) {
-      return (
-        <div className="Container-message" id="msjAnimation">
-          <p id="msj">{msgSucces}</p>
-        </div>
-      );
-    } else if (msgError) {
-      return <p className="message-error">{msgError}</p>;
-    }
-  };
-
-  setTimeout(() => {
-    setmsgError("")
-    setmsgSucces("")
-  }, 4000)
+    setTimeout( () => {
+        setMsj("")
+    }, 3000)
 
   return (
     <>
-      {showMessage()}
-
+      {msj ? (
+        <div className="Container-message" id="msjAnimation">
+          <p>{msj}</p>
+        </div>
+      ) : null}
     </>
   );
 }
