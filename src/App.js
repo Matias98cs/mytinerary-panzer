@@ -12,6 +12,9 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import { useEffect, useState } from 'react';
 
+import MyTineraries from './pages/MyTineraries';
+
+
 function App() {
 
   const [logged, setLogged] = useState(false)
@@ -60,6 +63,7 @@ function App() {
           <SignIn />
         } />
         <Route path='*' element={<PageNotFound />} />
+        <Route path='/mytinerary/:id' element= {<MyTineraries />} />
 
         </Routes>
 
