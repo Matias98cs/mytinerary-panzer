@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import * as jose from "jose";
 import { useGetSignInUserMutation } from "../features/usersAPI";
+import { useNavigate } from "react-router-dom";
 
 function SingInGoogle() {
     const divBtn = useRef(null);
     const [singInUser] = useGetSignInUserMutation()
+    const navigate = useNavigate()
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
@@ -14,15 +16,20 @@ function SingInGoogle() {
             pass: userObject.sub,
             from: "google"
         }
-        console.log(data)
         singIn(data)
     }
 
     function singIn(data){
         singInUser(data)
         .unwrap()
-        .then((succes)=> console.log(succes))
-        .catch ((error) => console.log(error))
+        .then((succes)=> {
+            console.log(succes)
+            localStorage.setItem('user', JSON.stringify(succes.response.user))
+            navigate("/", {replace: true})
+        })
+        .catch ((error) => {
+            console.log(error)
+        })
     }
 
     useEffect(() => {
