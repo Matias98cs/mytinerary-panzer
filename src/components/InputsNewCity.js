@@ -24,7 +24,6 @@ export default function InputsNewCity() {
   }
 
   const handleSubmit = (e) => {
-    setError("")
     e.preventDefault();
 
     const forData = new FormData(formRef.current);
@@ -50,7 +49,13 @@ export default function InputsNewCity() {
         </button>
       </form>
       {/* {error ? <p>{error}</p> : null} */}
-      <Alerts error={error}/>
+      {
+        error
+        ?
+          <Alerts error={error}/>
+        :
+        null
+      }
     </>
   );
 }
