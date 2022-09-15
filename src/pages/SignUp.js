@@ -7,21 +7,20 @@ import Alerts from "../components/Alert/Alerts";
 function SignUp() {
 
   const formRef = useRef();
-  const [addNewUser, response] = useGetPostNewUserMutation();
+  const [addNewUser] = useGetPostNewUserMutation();
   const [error, setError] = useState("");
-  const formSignUp = document.querySelector("#form-signup");
-  
   function sendUser(values) {
     addNewUser(values)
     .unwrap()
     .then((succes)=> {
       setError("User created")
     })
-    .catch ((error) => setError(error.data.message))
+    .catch (error => setError(error.data.message))
   }
 
   const handleSubmit = (e) =>{
     e.preventDefault()
+    const formSignUp = document.querySelector("#form-signup");
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     values.from = 'form'
@@ -29,9 +28,9 @@ function SignUp() {
       setError("Please enter all data")
     }else{
       sendUser(values)
-      formSignUp.reset()
-
+      formSignUp.reset()    
     }
+    
   }
   
   return (
