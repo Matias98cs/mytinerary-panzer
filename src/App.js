@@ -10,6 +10,7 @@ import Detail from './components/Detail';
 import EditPage from './pages/EditPage';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import MyTineraries from './pages/MyTineraries';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/auth/signup' element={<SignUp />} />
         <Route path='/auth/signin' element= {<SignIn />} />
         <Route path='*' element={<PageNotFound />} />
+        <Route path='/mytinerary/:id' element= {<MyTineraries />} />
 
         </Routes>
 
