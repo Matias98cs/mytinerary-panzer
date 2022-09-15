@@ -48,7 +48,6 @@ export default function InputsNewCity() {
           Send
         </button>
       </form>
-      {/* {error ? <p>{error}</p> : null} */}
       {
         error
         ?
