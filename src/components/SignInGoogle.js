@@ -1,17 +1,28 @@
 import React, { useEffect, useRef } from "react";
 import * as jose from "jose";
+import { useGetSignInUserMutation } from "../features/usersAPI";
 
 function SingInGoogle() {
     const divBtn = useRef(null);
+    const [singInUser] = useGetSignInUserMutation()
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
 
         let data = {
-            email: userObject.email,
+            mail: userObject.email,
             pass: userObject.sub,
+            from: "google"
         }
         console.log(data)
+        singIn(data)
+    }
+
+    function singIn(data){
+        singInUser(data)
+        .unwrap()
+        .then((succes)=> console.log(succes))
+        .catch ((error) => console.log(error))
     }
 
     useEffect(() => {
@@ -23,7 +34,7 @@ function SingInGoogle() {
         })
         google.accounts.id.renderButton(
             divBtn.current,
-            { theme: "outline", size: "medium", text: 'singin_with' }
+            { theme: "outline", size: "medium", text: 'singin_with',locale: "en" }
         );
     }, []);
 
