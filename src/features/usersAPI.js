@@ -27,9 +27,19 @@ export const usersAPI = createApi({
                 }
             },
             invalidatesTags: ['Post'],
+        }),
+        getSignOutUser: builder.mutation({
+            query(payload){
+                return{
+                    url: 'auth/signout',
+                    method: 'POST',
+                    body: payload
+                }
+            },
+            invalidatesTags: ['Post'],
         })
     })
 })
 
 export default usersAPI;
-export const {useGetPostNewUserMutation, useGetSignInUserMutation} = usersAPI;
+export const {useGetPostNewUserMutation, useGetSignInUserMutation, useGetSignOutUserMutation} = usersAPI;
