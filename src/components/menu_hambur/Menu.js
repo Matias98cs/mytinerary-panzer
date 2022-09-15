@@ -7,21 +7,20 @@ import { useGetSignOutUserMutation } from "../../features/usersAPI";
 const pageDefault = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
-]
+];
 
 const pageUserAdmin = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
   { name: "New City", to: "/newcity", id: 3 },
   { name: "Edit City", to: "/editcity", id: 4 },
-  { name: "My Itinerary", to: "/", id: 5 },
-
+  { name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user")).id}`, id: 5 },
 ];
 
 const pageUserLogin = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
-  { name: "My Itinerary", to: "/", id: 3 },
+  { name: "My Itinerary", to: "/mytinerary/:id", id: 3 },
 ];
 const link = (page) => (
   <LinkRouter className="nav_item" to={page.to} key={page.id}>
@@ -32,8 +31,8 @@ const link = (page) => (
 export default function Menu() {
   const [open, setOpen] = useState(false);
   const [logged, setLogged] = useState(false);
-  const [admin, setAdmin] = useState(false)
-  const [signoutUser] = useGetSignOutUserMutation()
+  const [admin, setAdmin] = useState(false);
+  const [signoutUser] = useGetSignOutUserMutation();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,21 +46,24 @@ export default function Menu() {
 
   useEffect(() => {
     JSON.parse(localStorage.getItem("user")) && setLogged(true);
-    JSON.parse(localStorage.getItem("user"))?.role === 'admin' && setAdmin(true)
+    JSON.parse(localStorage.getItem("user"))?.role === "admin" &&
+      setAdmin(true);
   }, []);
 
   async function signOut() {
-    let mail = { mail : JSON.parse(localStorage.getItem('user')).mail}
-    
-    console.log(mail)
+    let mail = { mail: JSON.parse(localStorage.getItem("user")).mail };
+
+    console.log(mail);
     signoutUser(mail)
       .unwrap()
-      .then(succes => {
-        setLogged(false)
-        localStorage.removeItem('user')
-        navigate("/", {replace: true})
+      .then((succes) => {
+        setLogged(false);
+        setAdmin(true);
+        localStorage.removeItem("user");
+        navigate("/", { replace: true });
+        window.location.reload();
       })
-      .catch(error => console.log(error))
+      .catch((error) => console.log(error));
   }
   // {JSON.parse(localStorage.getItem('user')).name}
 
@@ -72,28 +74,43 @@ export default function Menu() {
           <div className="nav_container">
             <label htmlFor="menu" className="nav_label">
               <img
-                src={JSON.parse(localStorage.getItem('user')).photo}
+                src={JSON.parse(localStorage.getItem("user")).photo}
                 className="nav_img"
                 alt="menu_logo"
               />
             </label>
             <input type="checkbox" id="menu" className="nav_input" />
 
-            {
-              admin
-              ?
+            {admin ? (
               <div className="nav_menu">{pageUserAdmin.map(link)}</div>
-              :
+            ) : (
               <div className="nav_menu">{pageUserLogin.map(link)}</div>
-            }
+            )}
           </div>
           <div className="Header-dropdown">
             {open ? (
               <ul>
-                <LinkRouter to="#">{JSON.parse(localStorage.getItem('user')).name}</LinkRouter>
-                <LinkRouter onClick={signOut} to="#">Log Out</LinkRouter>
-                <LinkRouter to="/auth/signup">Add new admin</LinkRouter>
-                <LinkRouter to="/auth/signup">Add new user</LinkRouter>
+                {admin ? (
+                  <>
+                    <LinkRouter to="#">
+                      {JSON.parse(localStorage.getItem("user")).name}
+                    </LinkRouter>
+                    <LinkRouter onClick={signOut} to="#">
+                      Log Out
+                    </LinkRouter>
+                    <LinkRouter to="/auth/signup">Add new admin</LinkRouter>
+                    <LinkRouter to="/auth/signup">Add new user</LinkRouter>
+                  </>
+                ) : (
+                  <>
+                    <LinkRouter to="#">
+                      {JSON.parse(localStorage.getItem("user")).name}
+                    </LinkRouter>
+                    <LinkRouter onClick={signOut} to="#">
+                      Log Out
+                    </LinkRouter>
+                  </>
+                )}
               </ul>
             ) : null}
           </div>
