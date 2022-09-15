@@ -14,7 +14,7 @@ const pageUserAdmin = [
   { name: "Cities", to: "/cities", id: 2 },
   { name: "New City", to: "/newcity", id: 3 },
   { name: "Edit City", to: "/editcity", id: 4 },
-  { name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user")).id}`, id: 5 },
+  { name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user"))}`, id: 5 },
 ];
 
 const pageUserLogin = [
