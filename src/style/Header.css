@@ -74,6 +74,7 @@ header{
 }
 .Header-dropdown a{
     text-decoration: none;
+    padding: .5rem;
 }
 
 .Header-dropdown ul {
