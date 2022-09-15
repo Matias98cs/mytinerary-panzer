@@ -22,7 +22,6 @@ function EditForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formCities = document.querySelector("#form-cities");
-
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     if(values.city == "" || values.country == "" || values.population == "" || values.fundation == "" || values.photo == ""){
