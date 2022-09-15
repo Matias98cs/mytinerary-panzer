@@ -3,9 +3,11 @@ import SingInGoogle from "../components/SignInGoogle";
 import "../style/SignIn.css";
 import { useGetSignInUserMutation } from "../features/usersAPI";
 import Alerts from "../components/Alert/Alerts";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const formData = useRef(null);
+  const navigate = useNavigate()
   const [signinForm] = useGetSignInUserMutation();
   const [error, setError] = useState("")
 
@@ -14,6 +16,8 @@ function SignIn() {
         .unwrap()
         .then(succes => {
           setError("Welcome")
+          localStorage.setItem('user', JSON.stringify(succes.response.user))
+          navigate("/", {replace: true})
         })
         .catch(error => setError(error.data.message))
   }
