@@ -92,6 +92,8 @@ export default function Menu() {
               <ul>
                 <LinkRouter to="#">{JSON.parse(localStorage.getItem('user')).name}</LinkRouter>
                 <LinkRouter onClick={signOut} to="#">Log Out</LinkRouter>
+                <LinkRouter to="/auth/signup">Add new admin</LinkRouter>
+                <LinkRouter to="/auth/signup">Add new user</LinkRouter>
               </ul>
             ) : null}
           </div>
