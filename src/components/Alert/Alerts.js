@@ -1,28 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import './Alerts.css'
+import React, { useEffect, useState } from "react";
+import "./Alerts.css";
 
-function Alerts({error}) {
-    const [msg,setMsg] = useState("")
-    useEffect(() => {
-        setMsg(error)
-    }, [error])
-    
-    setTimeout(() => {
-        setMsg("")
-    }, 4000)
+function Alerts({ succes, error }) {
+  const [msgError, setmsgError] = useState("");
+  const [msgSucces, setmsgSucces] = useState("");
+
+  useEffect(() => {
+    setmsgError(error)
+    setmsgSucces(succes)
+  },[succes, error])
+
+  const showMessage = () => {
+    if (msgSucces) {
+      return (
+        <div className="Container-message" id="msjAnimation">
+          <p id="msj">{msgSucces}</p>
+        </div>
+      );
+    } else if (msgError) {
+      return <p className="message-error">{msgError}</p>;
+    }
+  };
+
+  setTimeout(() => {
+    setmsgError("")
+    setmsgSucces("")
+  }, 4000)
+
   return (
     <>
-        {
-            msg
-            ?
-            <div className='Container-message' id="msjAnimation">
-                <p id='msj'>{msg}</p>
-            </div>
-            :
-            null
-        }
+      {showMessage()}
+
     </>
-  )
+  );
 }
 
-export default Alerts
+export default Alerts;

@@ -1,5 +1,5 @@
 .Container-message {
-    background-color: #a27b5cd0;
+    background-color: rgba(0, 128, 0, 0.61);
     width: 350px;
     display: flex;
     justify-content: center;
@@ -7,17 +7,30 @@
     text-align: center;
     height: 150px;
     position: absolute;
-    border-radius: 1rem;
+    width: 100%;
 }
 
 .Container-message p {
     color: white;
     letter-spacing: 1px;
-    font-size: 2rem;
+    font-size: 3rem;
+}
+
+.message-error {
+    background-color: red;
+    height: 35px;
+    display: flex;
+    padding: 5px 10px 5px 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 1rem;
+    font-size: 1.2rem;
 }
 
 #msjAnimation{
-	background: #bd3030a2;
 	color: #fff;
 	animation: tiendaNew 2.72s ease infinite;
 	transform-origin: 50% 50%;
@@ -26,7 +39,6 @@
 	-o-transition: 0.5s ease-out;
 	transition: 0.5s ease-out;
 	text-align: center;
-	font-size: 13px;
 	margin-bottom: 15px;
 	clear: both;
 	display: block;
@@ -46,6 +58,6 @@
 	100% { transform:translate(0,0) }
 }
 #msjAnimation:hover{
-	background:#815050;
+	background:#5ed80d77;
 	color: #fff;
 }
