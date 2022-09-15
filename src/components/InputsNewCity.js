@@ -1,39 +1,39 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../style/InputsCities.css";
 import InputForm from "./InputsForm/InputForm";
-import {useGetPostNewCityMutation} from '../features/citiesAPI'
-
+import { useGetPostNewCityMutation } from "../features/citiesAPI";
+import Alerts from "./Alert/Alerts";
 
 export default function InputsNewCity() {
   const formRef = useRef();
-  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
 
-
-  const [addNewPost] = useGetPostNewCityMutation()
+  const [addNewPost] = useGetPostNewCityMutation();
   const formCities = document.querySelector("#form-cities");
 
-  function sendCity() {
-    addNewPost(data)
-    .unwrap()
-    .then((succes) => console.log(succes))
-    .catch((error) => {
-      console.log(error.data.message)
-    })
+  function sendCity(values) {
+    addNewPost(values)
+      .unwrap()
+      .then((succes) => {
+        setError("City created")
+        formCities.reset()
+      })
+      .catch((error) => {
+        setError(error.data.message);
+      });
   }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
-    setData(values);
-    sendCity();
-    formCities.reset();
+    if(values.city == "" || values.country == "" || values.population == "" || values.fundation == "" || values.photo == ""){
+      setError('Please enter all data')
+    }else{
+      sendCity(values);
+    }
   };
-
-  console.log(data)
 
   return (
     <>
@@ -43,10 +43,12 @@ export default function InputsNewCity() {
         onSubmit={handleSubmit}
         ref={formRef}
       >
-        
         <InputForm />
-        <button className="btn-form" type="submit">Send</button>
+        <button className="btn-form" type="submit">
+          Send
+        </button>
       </form>
+      <Alerts error={error}/>
     </>
   );
 }
