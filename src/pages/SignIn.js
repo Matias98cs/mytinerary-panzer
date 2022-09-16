@@ -18,6 +18,7 @@ function SignIn() {
           setError("Welcome")
           localStorage.setItem('user', JSON.stringify(succes.response.user))
           navigate("/", {replace: true})
+          window.location.reload()
         })
         .catch(error => setError(error.data.message))
   }
