@@ -104,7 +104,29 @@
     box-shadow: 2px 3px 3px 2px black;
 }
 
+.itinerarios-clear{
+    min-height: 80vh;
+    background: url("../../public/images/pexels-cottonbro-5966316.jpg");
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.title-clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcd7c9e3;
+    width: 500px;
+    height: 120px;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
+.title-clear h2 {
+    letter-spacing: 1px;
 
-
+}
