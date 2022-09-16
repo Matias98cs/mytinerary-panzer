@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useGetAllUsersQuery } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
 
-const MyTinerary = ({ id }) => {
-  const { data: user } = useGetAllUsersQuery(id);
-  const [item, setItem] = useState();
-  useEffect(() => {
-    setItem(user);
-  }, [item]);
-  let userDetail = user?.response;
+const MyTinerary = () => {
+  let userId = JSON.parse(localStorage.getItem("user")).id
+  const { data: user } = useGetAllUsersQuery(userId);
+  let userDetail = user?.response
+  console.log(user?.response)
 
   const showItinerary = (item) => {
     return (
@@ -32,19 +30,19 @@ const MyTinerary = ({ id }) => {
   };
   return (
     <>
-      {item ? (
-        <>
+      {user ? (
+        <> 
           <div className="mytinerary-container">
             <h1>My Tineraries</h1>
             <img
               className="mytinerary-img"
-              src={userDetail.user?.photo}
+              src={userDetail[0].user?.photo}
               alt="photo"
             />
             <div className="mytinerary-user">
               <div className="mytinerary-profile">
-                <h3>{userDetail.user?.name}</h3>
-                <h3>{userDetail.user?.mail}</h3>
+                <h3>{userDetail[0].user?.name}</h3>
+                <h3>{userDetail[0].user?.mail}</h3>
               </div>
             </div>
           </div>

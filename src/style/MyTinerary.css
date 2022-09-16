@@ -1,8 +1,11 @@
 *{
     margin:0;
 }
-
+.MyTinerary-container{
+    min-height: 85vh;
+}
 .mytinerary-container{
+    min-height: 25vh;
     display: flex;
     flex-direction: column;
     background-image: url(https://profesoraespanol.com/wp-content/uploads/220769-P0Y92L-860-1080x675.jpg);
@@ -46,7 +49,7 @@
 
 .mytinerary-profile{
     display: flex;
-    width: 100vw;
+    width: 99vw;
     flex-direction: column;
     align-items: center;
     border-radius: 30px;
@@ -56,6 +59,7 @@
 }
 
 .mytinerary-general{
+    min-height: 80vh;
     background-color: #3f4e4fbc;
 }
 
@@ -99,7 +103,7 @@
 
 .mytinerary-content img{
     width: 30vw;
-    height: 30vh;
+    height: 25vh;
     border-radius: 20px;
     box-shadow: 2px 3px 3px 2px black;
 }
@@ -129,4 +133,55 @@
 .title-clear h2 {
     letter-spacing: 1px;
 
+}
+
+@media (max-width:1800px){
+    .mytinerary-content img{
+        width: 70vw;
+        height: 50vh;
+    }
+}
+
+@media (max-width:1440px){
+    .mytinerary-content img{
+        width: 50vw;
+        height: 30vh;
+    }
+}
+
+@media (max-width:1024px){
+    .mytinerary-content img{
+        width: 50%;
+        height: 30vh;
+    }
+    .mytinerary-content{
+        min-height: 30vh;
+        display: flex;
+        flex-direction: row;
+    }
+    .mytinerary-duration{
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 2rem;
+        font-size: .9rem;
+    }
+}
+
+@media (max-width:768px){
+    .mytinerary-content{
+        flex-direction: column;
+        border: none;
+        box-shadow: none;
+        font-size: 1.5rem;
+    }
+    .mytinerary-content img{
+        width: 85vw;
+        height: 35vh;
+    }
+    .mytinerary-duration{
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4rem 0;
+    }
 }

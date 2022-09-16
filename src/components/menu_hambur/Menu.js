@@ -23,12 +23,12 @@ const pageUserLogin = [
 
 
 if(!JSON.parse(localStorage.getItem("user"))){
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user"))}`, id: 3})
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user"))}`, id: 5})
+  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
+  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
 
 }else{
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user")).id}`, id: 5})
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/${JSON.parse(localStorage.getItem("user")).id}`, id: 3})
+  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
+  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
 }
 
 const link = (page) => (
@@ -73,7 +73,6 @@ export default function Menu() {
       })
       .catch((error) => console.log(error));
   }
-  // {JSON.parse(localStorage.getItem('user')).name}
 
   return (
     <>
@@ -82,7 +81,7 @@ export default function Menu() {
           <div className="nav_container">
             <label htmlFor="menu" className="nav_label">
               <img
-                src={JSON.parse(localStorage.getItem("user")).photo}
+                src="./images/menu.svg" 
                 className="nav_img"
                 alt="menu_logo"
               />
@@ -123,8 +122,9 @@ export default function Menu() {
             ) : null}
           </div>
           <div className="Header-login">
-            <img onClick={handleOpenMenu} src="./images/pngegg.png" alt="" />
+            <img onClick={handleOpenMenu} src={JSON.parse(localStorage.getItem("user")).photo} alt="profile" />
           </div>
+          {/* https://pbs.twimg.com/profile_images/1003643864907993088/eF0VVprg_400x400.jpg */}
         </nav>
       ) : (
         <nav className="nav">
