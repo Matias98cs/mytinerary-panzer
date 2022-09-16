@@ -53,7 +53,11 @@ const MyTinerary = ({ id }) => {
           </div>
         </>
       ) : (
-        <h2>No hay nada</h2>
+        <div className="itinerarios-clear">
+          <div className="title-clear">
+            <h2>No Itineraries Yet</h2>
+          </div>
+        </div>
       )}
     </>
   );
