@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as jose from "jose";
 import { useGetPostNewUserMutation } from "../features/usersAPI";
+import Alerts from "./Alert/Alerts";
+import { useNavigate } from "react-router-dom";
 
 function SignUpGoogle() {
   const btnDiv = useRef(null);
   const [addNewUser] = useGetPostNewUserMutation()
+  const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   async function handleCredentialResponse(response){
     let userObject = jose.decodeJwt(response.credential)
@@ -19,15 +23,18 @@ function SignUpGoogle() {
         role: 'user',
         from: 'google'
     }
-    console.log(data)
     sendNewUser(data)
   }
 
   function sendNewUser(data) {
     addNewUser(data)
       .unwrap()
-      .then(succes => console.log(succes))
-      .catch(error => console.log(error))
+      .then(succes => {
+        setError('User Created')
+        navigate("/auth/signin", {replace: true})
+        window.location.reload()
+      })
+      .catch(error => setError(error.data.message))
   }
   useEffect(() => {
         /* global google */
@@ -43,9 +50,13 @@ function SignUpGoogle() {
   }, []);
 
   return (
-    <div>
-        <div ref={btnDiv} ></div>
-    </div>
+    <>
+      <div>
+          <div ref={btnDiv} ></div>
+
+      </div>
+      <Alerts error={error} />
+    </>
   );
 }
 
