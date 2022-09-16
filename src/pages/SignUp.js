@@ -14,6 +14,7 @@ function SignUp() {
     .unwrap()
     .then((succes)=> {
       setError("User created")
+      localStorage.setItem('user', JSON.stringify(succes.response.user))
     })
     .catch (error => setError(error.data.message))
   }
