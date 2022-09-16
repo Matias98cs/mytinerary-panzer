@@ -63,7 +63,7 @@ function App() {
           <SignIn />
         } />
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/mytinerary/:id' element= {<MyTineraries />} />
+        <Route path='/mytinerary/mytineraries' element= {<MyTineraries />} />
 
         </Routes>
 
