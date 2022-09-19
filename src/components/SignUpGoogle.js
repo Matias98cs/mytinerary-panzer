@@ -15,7 +15,7 @@ function SignUpGoogle() {
 
     let data = {
         name: userObject.name,
-        lastname: userObject.family_name,
+        lastname: userObject.family_name || userObject.given_name,
         photo: userObject.picture,
         mail: userObject.email,
         country: "Argentina",

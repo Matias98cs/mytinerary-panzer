@@ -14,22 +14,14 @@ const pageUserAdmin = [
   { name: "Cities", to: "/cities", id: 2 },
   { name: "New City", to: "/newcity", id: 3 },
   { name: "Edit City", to: "/editcity", id: 4 },
+  {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5}
 ];
 
-const pageUserLogin = [
+const pageUserNormal = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
+  {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3}
 ];
-
-
-if(!JSON.parse(localStorage.getItem("user"))){
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
-
-}else{
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-}
 
 const link = (page) => (
   <LinkRouter className="nav_item" to={page.to} key={page.id}>
@@ -61,7 +53,6 @@ export default function Menu() {
   async function signOut() {
     let mail = { mail: JSON.parse(localStorage.getItem("user")).mail };
 
-    console.log(mail);
     signoutUser(mail)
       .unwrap()
       .then((succes) => {
@@ -69,7 +60,6 @@ export default function Menu() {
         setAdmin(true);
         localStorage.removeItem("user");
         navigate("/", { replace: true });
-        window.location.reload();
       })
       .catch((error) => console.log(error));
   }
@@ -91,7 +81,7 @@ export default function Menu() {
             {admin ? (
               <div className="nav_menu">{pageUserAdmin.map(link)}</div>
             ) : (
-              <div className="nav_menu">{pageUserLogin.map(link)}</div>
+              <div className="nav_menu">{pageUserNormal.map(link)}</div>
             )}
           </div>
           <div className="Header-dropdown">
@@ -124,7 +114,6 @@ export default function Menu() {
           <div className="Header-login">
             <img onClick={handleOpenMenu} src={JSON.parse(localStorage.getItem("user")).photo} alt="profile" />
           </div>
-          {/* https://pbs.twimg.com/profile_images/1003643864907993088/eF0VVprg_400x400.jpg */}
         </nav>
       ) : (
         <nav className="nav">

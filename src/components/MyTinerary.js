@@ -1,12 +1,12 @@
 import React, { useEffect, useState} from "react";
-import { useGetAllUsersQuery } from "../features/myTineraryAPI";
+import { useGetAllItinerariesQuery } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
 
 const MyTinerary = () => {
+
   let userId = JSON.parse(localStorage.getItem("user")).id
-  const { data: user } = useGetAllUsersQuery(userId);
+  const { data : user, error, isLoading } = useGetAllItinerariesQuery(userId);  
   let userDetail = user?.response
-  console.log(user?.response)
 
   const showItinerary = (item) => {
     return (
@@ -36,7 +36,7 @@ const MyTinerary = () => {
             <h1>My Tineraries</h1>
             <img
               className="mytinerary-img"
-              src={userDetail[0].user?.photo}
+              src={userDetail[0].user.photo}
               alt="photo"
             />
             <div className="mytinerary-user">
