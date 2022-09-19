@@ -17,21 +17,11 @@ const pageUserAdmin = [
   {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5}
 ];
 
-const pageUserLogin = [
+const pageUserNormal = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
   {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3}
 ];
-
-
-// if(!JSON.parse(localStorage.getItem("user"))){
-//   pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-//   pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
-
-// }else{
-//   pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
-//   pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-// }
 
 const link = (page) => (
   <LinkRouter className="nav_item" to={page.to} key={page.id}>
@@ -93,7 +83,7 @@ export default function Menu() {
             {admin ? (
               <div className="nav_menu">{pageUserAdmin.map(link)}</div>
             ) : (
-              <div className="nav_menu">{pageUserLogin.map(link)}</div>
+              <div className="nav_menu">{pageUserNormal.map(link)}</div>
             )}
           </div>
           <div className="Header-dropdown">
@@ -126,7 +116,6 @@ export default function Menu() {
           <div className="Header-login">
             <img onClick={handleOpenMenu} src={JSON.parse(localStorage.getItem("user")).photo} alt="profile" />
           </div>
-          {/* https://pbs.twimg.com/profile_images/1003643864907993088/eF0VVprg_400x400.jpg */}
         </nav>
       ) : (
         <nav className="nav">
