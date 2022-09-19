@@ -14,22 +14,24 @@ const pageUserAdmin = [
   { name: "Cities", to: "/cities", id: 2 },
   { name: "New City", to: "/newcity", id: 3 },
   { name: "Edit City", to: "/editcity", id: 4 },
+  {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5}
 ];
 
 const pageUserLogin = [
   { name: "Home", to: "/", id: 1 },
   { name: "Cities", to: "/cities", id: 2 },
+  {name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3}
 ];
 
 
-if(!JSON.parse(localStorage.getItem("user"))){
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
+// if(!JSON.parse(localStorage.getItem("user"))){
+//   pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
+//   pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
 
-}else{
-  pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
-  pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
-}
+// }else{
+//   pageUserAdmin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 5})
+//   pageUserLogin.push({name: "My Itinerary", to: `/mytinerary/mytineraries`, id: 3})
+// }
 
 const link = (page) => (
   <LinkRouter className="nav_item" to={page.to} key={page.id}>
