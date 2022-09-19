@@ -3,10 +3,10 @@ import { useGetAllUsersQuery } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
 
 const MyTinerary = () => {
-  let userId = JSON.parse(localStorage.getItem("user")).id
-  const { data: user } = useGetAllUsersQuery(userId);
+
+  let userId = JSON.parse(localStorage.getItem("user"))
+  const { data: user } = useGetAllUsersQuery(userId);  
   let userDetail = user?.response
-  console.log(user?.response)
 
   const showItinerary = (item) => {
     return (
