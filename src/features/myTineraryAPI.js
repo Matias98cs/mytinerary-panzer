@@ -9,11 +9,11 @@ export const myTineraryAPI = createApi({
 
     }),
     endpoints: (builder) => ({
-        getAllUsers: builder.query({
+        getAllItineraries: builder.query({
             query:(id) => `/itineraries/query?user=${id}`
         })
     })
 })
 
 export default myTineraryAPI
-export const {useGetAllUsersQuery} = myTineraryAPI
+export const {useGetAllItinerariesQuery} = myTineraryAPI
