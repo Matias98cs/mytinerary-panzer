@@ -53,7 +53,6 @@ export default function Menu() {
   async function signOut() {
     let mail = { mail: JSON.parse(localStorage.getItem("user")).mail };
 
-    console.log(mail);
     signoutUser(mail)
       .unwrap()
       .then((succes) => {
@@ -61,7 +60,6 @@ export default function Menu() {
         setAdmin(true);
         localStorage.removeItem("user");
         navigate("/", { replace: true });
-        window.location.reload();
       })
       .catch((error) => console.log(error));
   }
