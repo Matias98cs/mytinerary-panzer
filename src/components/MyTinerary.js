@@ -1,10 +1,11 @@
 import React, { useEffect, useState} from "react";
+import { useSelector } from "react-redux";
 import { useGetAllItinerariesQuery } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
 
 const MyTinerary = () => {
 
-  let userId = JSON.parse(localStorage.getItem("user")).id
+  const userId = useSelector(state => state.auth.userId)
   const { data : user, error, isLoading } = useGetAllItinerariesQuery(userId);  
   let userDetail = user?.response
 

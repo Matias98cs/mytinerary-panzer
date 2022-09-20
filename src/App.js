@@ -13,16 +13,45 @@ import SignIn from './pages/SignIn';
 import { useEffect, useState } from 'react';
 
 import MyTineraries from './pages/MyTineraries';
+import { useSignInTokenMutation } from './features/usersAPI';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuthUser } from './features/userSlice';
 
 
 function App() {
 
-  const [logged, setLogged] = useState(false)
-  const [admin, setAdmin] = useState(false)
+  const [singInToken] = useSignInTokenMutation()
+  const dispatch = useDispatch()
+  const logged = useSelector(state => state.auth.logged)
+  const role = useSelector(state => state.auth.role)
+  const [admin , setAdmin] = useState()
+
+  async function verifyToken(){
+    try{
+      let res = await singInToken(localStorage.getItem('token'))
+      if(res.data?.success){
+        dispatch(setAuthUser(res.data.response.user))
+      }else{
+        localStorage.removeItem('token')
+      }
+    }catch(error){
+      localStorage.removeItem('token')
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem('user')) && setLogged(true)
-    JSON.parse(localStorage.getItem('user'))?.role === 'admin' && setAdmin(true)
+    if(role === "admin"){
+      setAdmin(true)
+    }else if(role === "user") {
+      setAdmin(false)
+    }
+  }, [role])
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      verifyToken()
+    }
   },[])
 
   return (

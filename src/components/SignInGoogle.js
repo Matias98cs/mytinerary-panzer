@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from "react";
 import * as jose from "jose";
 import { useGetSignInUserMutation } from "../features/usersAPI";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuthUser } from "../features/userSlice";
 
 function SingInGoogle() {
     const divBtn = useRef(null);
     const [singInUser] = useGetSignInUserMutation()
+    const dispath = useDispatch()
     const navigate = useNavigate()
 
     async function handleCredentialResponse(response) {
@@ -16,19 +19,20 @@ function SingInGoogle() {
             pass: userObject.sub,
             from: "google"
         }
-        singIn(data)
-    }
 
-    function singIn(data){
-        singInUser(data)
-        .unwrap()
-        .then((succes)=> {
-            localStorage.setItem('user', JSON.stringify(succes.response.user))
-            navigate("/", {replace: true})
-        })
-        .catch ((error) => {
+        try {
+            let res = await singInUser(data)
+            if(res.data?.success){
+                dispath(setAuthUser(res.data.response.user))
+                localStorage.setItem('token', res.data.response.token)
+                navigate("/", {replace: true})
+            }else {
+                console.log(res.error)
+            }
+        }catch(error){
             console.log(error)
-        })
+        }
+
     }
 
     useEffect(() => {

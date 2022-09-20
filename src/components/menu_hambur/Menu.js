@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import "../../style/MenuHambur.css";
 import { Link as LinkRouter, useLocation, useNavigate } from "react-router-dom";
 import { useGetSignOutUserMutation } from "../../features/usersAPI";
+import {useDispatch, useSelector} from 'react-redux'
+import {deleteAuthUser} from '../../features/userSlice'
 
 const pageDefault = [
   { name: "Home", to: "/", id: 1 },
@@ -31,10 +32,13 @@ const link = (page) => (
 
 export default function Menu() {
   const [open, setOpen] = useState(false);
-  const [logged, setLogged] = useState(false);
-  const [admin, setAdmin] = useState(false);
   const [signoutUser] = useGetSignOutUserMutation();
   const navigate = useNavigate();
+  const user = useSelector(state => state.auth.user)
+  const role = useSelector(state => state.auth.role)
+  const logged = useSelector(state => state.auth.logged)
+  const dispatch = useDispatch()
+  const [admin , setAdmin] = useState()
 
   const handleOpenMenu = () => {
     if (open === true) {
@@ -45,23 +49,26 @@ export default function Menu() {
   };
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem("user")) && setLogged(true);
-    JSON.parse(localStorage.getItem("user"))?.role === "admin" &&
-      setAdmin(true);
-  }, []);
+    if(role === "admin"){
+      setAdmin(true)
+    }else if(role === "user") {
+      setAdmin(false)
+    }
+  }, [role])
+
 
   async function signOut() {
-    let mail = { mail: JSON.parse(localStorage.getItem("user")).mail };
+  
+    try{
+      await signoutUser(user.mail)
+      localStorage.removeItem('token')
+      dispatch(deleteAuthUser())
+      navigate("/", {replace: true})
 
-    signoutUser(mail)
-      .unwrap()
-      .then((succes) => {
-        setLogged(false);
-        setAdmin(true);
-        localStorage.removeItem("user");
-        navigate("/", { replace: true });
-      })
-      .catch((error) => console.log(error));
+    }catch(error){
+      console.log(error)
+    }
+
   }
 
   return (
@@ -90,7 +97,7 @@ export default function Menu() {
                 {admin ? (
                   <>
                     <LinkRouter to="#">
-                      {JSON.parse(localStorage.getItem("user")).name}
+                      {user.name}
                     </LinkRouter>
                     <LinkRouter onClick={signOut} to="#">
                       Log Out
@@ -101,7 +108,7 @@ export default function Menu() {
                 ) : (
                   <>
                     <LinkRouter to="#">
-                      {JSON.parse(localStorage.getItem("user")).name}
+                      {user.name}
                     </LinkRouter>
                     <LinkRouter onClick={signOut} to="#">
                       Log Out
@@ -112,7 +119,7 @@ export default function Menu() {
             ) : null}
           </div>
           <div className="Header-login">
-            <img onClick={handleOpenMenu} src={JSON.parse(localStorage.getItem("user")).photo} alt="profile" />
+            <img onClick={handleOpenMenu} src={user.photo} alt="profile" />
           </div>
         </nav>
       ) : (
