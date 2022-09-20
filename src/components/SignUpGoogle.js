@@ -32,7 +32,6 @@ function SignUpGoogle() {
       .then(succes => {
         setError('User Created')
         navigate("/auth/signin", {replace: true})
-        window.location.reload()
       })
       .catch(error => setError(error.data.message))
   }
