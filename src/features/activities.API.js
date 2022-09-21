@@ -9,9 +9,17 @@ export const actitiesAPI = createApi({
     endpoints: (builder) => ({
         getActivity: builder.query({
             query: (itineraryId) => `/activities/query?itinerary=${itineraryId}`
+        }),
+        updateActivity: builder.mutation({
+            query: (playload) => ({
+                url: `http://localhost:4000/activities/update-activity/${playload._id}`,
+                method: "PATCH",
+                body: playload
+            })
         })
     })
+
 })
 
 export default actitiesAPI
-export const {useGetActivityQuery} = actitiesAPI
+export const { useGetActivityQuery, useUpdateActivityMutation } = actitiesAPI
