@@ -17,7 +17,6 @@ export default function Detail() {
   let newCity = cities?.response;
   let date = new Date(newCity?.fundation);
   let findItinerary = itinerary?.response;
-  console.log(logged);
 
   const handleOpenMenu = () => {
     if (open === true) {
