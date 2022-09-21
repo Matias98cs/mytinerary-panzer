@@ -35,11 +35,24 @@ export const itineraryAPI = createApi({
                         body: payload
                     }
                 }
+        }),
+        likeDislike: builder.mutation({
+            query: (id) => ({
+                url: ``,
+                method: 'PATCH',
+                headers:  {Authorization: `Bearer ${localStorage.getItem("token")}`}
             })
         })
-
     })
+})
 
 export default itineraryAPI;
-export const { useGetAllItinerariesQuery, useDeleteItineraryMutation, useGetItineraryQuery, useUpdateItineraryMutation, useGetPostNewItineraryMutation } = itineraryAPI
+export const { 
+        useGetAllItinerariesQuery,
+        useDeleteItineraryMutation,
+        useGetItineraryQuery, 
+        useUpdateItineraryMutation, 
+        useGetPostNewItineraryMutation,
+        useLikeDislikeMutation
+     } = itineraryAPI
 
