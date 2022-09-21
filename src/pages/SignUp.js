@@ -3,8 +3,16 @@ import SignUpGoogle from "../components/SignUpGoogle";
 import "../style/SignUp.css";
 import { useGetPostNewUserMutation } from "../features/usersAPI";
 import Alerts from "../components/Alert/Alerts";
+import { useLocation } from "react-router-dom";
 
 function SignUp() {
+  const location = useLocation()
+  let role;
+  if(location.state){
+    role = location.state.role
+  }else{
+    role = 'user'
+  }
 
   const formRef = useRef();
   const [addNewUser] = useGetPostNewUserMutation();
@@ -25,18 +33,18 @@ function SignUp() {
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
     values.from = 'form'
+    values.role = role
     if(values.country == "" || values.lastname == "" || values.mail == "" || values.name == "" || values.password == "" || values.photo == "" || values.role == ""){
       setError("Please enter all data")
     }else{
       sendUser(values)
       formSignUp.reset()    
     }
-    
   }
   
   return (
     <div className="SignUp-container">
-      <h2 className="signup-title">Sign Up</h2>
+      <h2 className="signup-title">Sign Up {role.toUpperCase()}</h2>
       <form onSubmit={handleSubmit} ref={formRef} id="form-signup">
           <label>
             Name
@@ -62,12 +70,7 @@ function SignUp() {
             Password
             <input name="password" type="password"/>
           </label>
-          <select name="role">
-            <option defaultChecked>Choose role</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-            <button type="submit">Create</button>          
+          <button type="submit">Create</button>          
       </form>
       <SignUpGoogle />
       <Alerts error={error}/>

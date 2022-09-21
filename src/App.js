@@ -80,19 +80,8 @@ function App() {
           :
           <Welcome />
         } />
-        <Route path='/auth/signup' element={
-          logged
-          ?
-          <Welcome/>
-          :
-          <SignUp />
-        } />
-        <Route path='/auth/signin' element= {
-          logged
-          ?
-          <Welcome/>
-          :
-          <SignIn />
+        <Route path='/auth/signup' element={<SignUp />}/>
+        <Route path='/auth/signin' element= {<SignIn />
         } />
         <Route path='/edit-itinerary/:id' element={<PatchItinerary/>}/>
         <Route path='*' element={<PageNotFound />} />
