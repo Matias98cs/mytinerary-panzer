@@ -2,12 +2,17 @@ import React, { useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { useGetAllItinerariesQuery } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
+import { Link as LinkRouter } from "react-router-dom";
+import { useDeleteItineraryMutation } from "../features/itineraryAPI";
 
 const MyTinerary = () => {
-
+  const [itineraryDelete] = useDeleteItineraryMutation()
   const userId = useSelector(state => state.auth.userId)
   const { data : user, error, isLoading } = useGetAllItinerariesQuery(userId);  
   let userDetail = user?.response
+  function deleteItinerary(key) {
+    itineraryDelete(key)
+  }
 
   const showItinerary = (item) => {
     return (
@@ -25,6 +30,8 @@ const MyTinerary = () => {
             <p>Likes: {item?.likes}</p>
             <p>{item?.tags}</p>
           </div>
+          <LinkRouter className="mytinerary-btn-edit" to={ `/edit-itinerary/${item?._id} `}>Edit itinerary</LinkRouter>
+          <button className="mytinerary-btn-delete" onClick={()=> deleteItinerary(item?._id)}>Delete</button>
         </div>
       </div>
     );

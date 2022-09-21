@@ -1,0 +1,83 @@
+.patchItini-general{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 0 1rem 1rem;
+    background-color:#3f4e4fbc ;
+    width: 600px;
+}
+
+.patchItini-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem ;
+}
+.patchItini-container input{
+    border-radius: 10px;
+    padding: 2px;
+}
+.patchItini-container p {
+    margin:.3rem 0 ;
+}
+
+.patchItini-form{
+    background-image: url(https://elviajerofeliz.com/wp-content/uploads/2019/10/10-Cosas-que-no-debes-olvidar-cuando-viajas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    min-height: 87vh;
+    color: antiquewhite;
+}
+
+.patchItini-p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    background-color:#3f4e4fbc ;
+    width: 600px;
+    min-height: 20vh;
+    border-radius: 1rem 1rem 0 0;
+}
+.patchItini-p p{
+    padding: .3rem 0;
+}
+
+.patchItini-p input{
+    width: 90%;
+    margin: .3rem 0;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.patchItini-btn{
+    background-color: #3f4e4fbc;
+    color: white;
+    border: none;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.patchItini-btn:hover{
+    background-color: #dcd7c9e8;
+    color: black ;
+    font-weight: bolder;
+}
+
+@media (max-width:700px){
+    .patchItini-p {
+        width: 80%;
+    }
+    .patchItini-general{
+        width: 80%;
+    }
+}
