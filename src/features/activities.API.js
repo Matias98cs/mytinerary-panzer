@@ -9,9 +9,16 @@ export const actitiesAPI = createApi({
     endpoints: (builder) => ({
         getActivity: builder.query({
             query: (itineraryId) => `/activities/query?itinerary=${itineraryId}`
+        }),
+        createActivity: builder.mutation({
+            query: (payload) => ({
+                url: '/activities',
+                method: 'POST',
+                body: payload
+            })
         })
     })
 })
 
 export default actitiesAPI
-export const {useGetActivityQuery} = actitiesAPI
+export const {useGetActivityQuery, useCreateActivityMutation} = actitiesAPI

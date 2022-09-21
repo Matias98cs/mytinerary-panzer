@@ -16,6 +16,7 @@ import MyTineraries from './pages/MyTineraries';
 import { useSignInTokenMutation } from './features/usersAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from './features/userSlice';
+import NewItinerary from './pages/NewItinerary';
 
 
 function App() {
