@@ -17,6 +17,8 @@ import { useSignInTokenMutation } from './features/usersAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from './features/userSlice';
 import PatchItinerary from './components/PatchItinerary';
+import NewItinerary from './pages/NewItinerary';
+
 
 
 function App() {

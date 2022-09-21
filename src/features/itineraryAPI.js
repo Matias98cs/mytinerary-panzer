@@ -26,10 +26,20 @@ export const itineraryAPI = createApi({
                 method: "PATCH",
                 body: playload
             })
+
+        getPostNewItinerary: builder.mutation({
+            query(payload){
+                return{
+                    url: '/itineraries',
+                    method: 'POST',
+                    body: payload
+                }
+            }
         })
     })
 
 })
 
 export default itineraryAPI;
-export const {useGetAllItinerariesQuery, useDeleteItineraryMutation, useGetItineraryQuery, useUpdateItineraryMutation} = itineraryAPI
+export const {useGetAllItinerariesQuery, useDeleteItineraryMutation, useGetItineraryQuery, useUpdateItineraryMutation, useGetPostNewItineraryMutation} = itineraryAPI
+

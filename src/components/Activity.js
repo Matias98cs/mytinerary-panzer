@@ -17,7 +17,7 @@ function Activity(data) {
     }
   return (
     <>
-        <h2>Activities</h2>
+        <h4>ACTIVITIES</h4>
         <div className='itinerary-activity'>
             {activities?.map(showActivity)}
         </div>
