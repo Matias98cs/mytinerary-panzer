@@ -1,0 +1,64 @@
+.form-new-itinerary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 12px 0 12px 0;
+    background-color: #A27B5C;
+    width: 100%;
+    color: #2C3639;
+
+}
+
+.form-new-itinerary form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.frm-nw-iti-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-new-itinerary button {
+    border: none;
+    border-radius: .5rem;
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #2C3639;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-new-itinerary button:hover {
+    background-color:#DCD7C9 ;
+    color: #2C3639;
+}
+
+.form-new-itinerary form > div {
+    height: 200px;
+    padding: 1em;
+
+}
+
+.frm-nw-iti-inputs label {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.frm-nw-iti-inputs label > input {
+    border-radius: 1rem;
+    border: none;
+    padding: 5px;
+}
