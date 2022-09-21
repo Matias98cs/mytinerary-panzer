@@ -66,7 +66,7 @@ function Itinerary({ item }) {
                     </div>
                     <div className="comment-input-div">
                       <input type= "text" name="comment" id="comment-input" placeholder= "Write your comment here!"/>
-                      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="sendComment" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                      <svg strokeWidth="currentColor" fill="currentColor" viewBox="0 0 24 24" className="sendComment" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
                     </div>
                   </div>
                   :
