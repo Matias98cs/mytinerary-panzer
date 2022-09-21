@@ -6,20 +6,43 @@
     flex-direction: column;
 }
 
+.title-itineraries {
+    background-color: #a27b5cc0;
+    padding: 10px 0 10px 0;
+    letter-spacing: 1px;
+    color: #2C3639;
+}
+
 .Details_cards{
     display: flex;
     background-color: #dcd7c9af;
-    gap: 1.5rem;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3em;
 }
 
 .Detail_image{
     display: flex;
     height: 400px;
-
+    width: 400px;
+    
 }
+
+.Detail_content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    width: 600px;
+}
+
 
 .Detail_image img{
     object-fit: cover;
+    border-radius: 10px 5em 10px 5em;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .btn-details {
     width: 300px;
@@ -36,6 +59,7 @@
     font-weight: bold;
     padding: 10px 0 10px 0;
     border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .btn-details:hover {
@@ -43,16 +67,16 @@
     background-color: #3F4E4F;
 }
 
-.Detail_content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1em;
-    width: 1000px;
-}
 
 .Detail-Text{
-    font-size: larger;
+    font-size: 1.1rem;
+    color: #A27B5C;
+
+}
+
+.Detail-Text strong {
+    font-size: 1.2rem;
+    color: #2C3639;
 }
 
 .form-activities {

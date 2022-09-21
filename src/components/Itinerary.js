@@ -19,9 +19,8 @@ function Itinerary({ item }) {
   };
   return (
     <div className="Itinerary-container" key={item._id}>
-      <h2>Itinerary</h2>
       <div className="itinerary-title">
-        <p>Name:{item.name}</p>
+        <h3>{item.name}</h3>
       </div>
       <Activity data={item._id} />
       <div className="itinerary-price">

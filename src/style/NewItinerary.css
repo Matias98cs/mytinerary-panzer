@@ -3,12 +3,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
-    padding: 12px 0 12px 0;
+    padding: 15px 0 15px 0;
     background-color: #A27B5C;
     width: 100%;
     color: #2C3639;
 
+}
+
+
+.form-activities  input {
+    border-radius: .4rem;
+    border: none;
+    padding: 15px 20px 15px 20px;
+    background-color:#dcd7c94d ;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-activities strong {
+    font-size: 1.2rem;
 }
 
 .form-new-itinerary form {
@@ -16,7 +29,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 2em;
 }
 
 .frm-nw-iti-inputs {
@@ -26,6 +38,7 @@
     align-items: center;
     flex-direction: column;
     gap: 1em;
+    color: #2C3639;
 }
 
 .form-new-itinerary button {
@@ -36,7 +49,7 @@
     cursor: pointer;
     background-color: #2C3639;
     color: white;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .form-new-itinerary button:hover {
@@ -46,19 +59,30 @@
 
 .form-new-itinerary form > div {
     height: 200px;
-    padding: 1em;
 
 }
 
-.frm-nw-iti-inputs label {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-}
-
-.frm-nw-iti-inputs label > input {
-    border-radius: 1rem;
+.frm-nw-iti-inputs input {
+    border-radius: .4rem;
     border: none;
-    padding: 5px;
+    padding: 15px 20px 15px 20px;
+    background-color:#dcd7c94d ;
+    color: white;
+    font-size: 1rem;
+}
+
+.frm-nw-iti-inputs input:hover{
+    background-color: #dcd7c97a;
+}
+
+.form-activities input:hover {
+    background-color: #dcd7c97a;
+}
+
+.form-activities input:focus-visible {
+    outline: none;
+}
+
+.frm-nw-iti-inputs input:focus-visible {
+    outline: none;
 }

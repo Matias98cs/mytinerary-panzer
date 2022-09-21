@@ -46,35 +46,18 @@ function NewItinerary({ name, id }) {
 
   return (
     <div className="form-new-itinerary">
-      <h1>Add new Itinerary</h1>
+      <h1>ADD NEW ITINERARY</h1>
       <form onSubmit={handleSubmit} ref={formRef}>
         <div className="frm-nw-iti-inputs">
-          <label>
-            Name
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Price
-            <input type="number" name="price" />
-          </label>
-          <label>
-            Tags
-            <input type="text" name="tags" />
-          </label>
-          <label>
-            Duration
-            <input type="number" name="duration" />
-          </label>
+            <input type="text" name="name" placeholder="Name"/>
+            <input type="number" name="price" placeholder="Price"/>
+            <input type="text" name="tags" placeholder="Tags" />
+            <input type="number" name="duration"  placeholder="Duration"/>
         </div>
         <div className="form-activities">
-            <label>
-                Name Activity
-                <input type="text" name="nameacti" />
-            </label>
-            <label>
-                Photo Activity
-                <input type="text" name="photoacti" />
-            </label>
+            <strong>ACTIVITY</strong>
+            <input type="text" name="nameacti" placeholder="Name Activity" />
+            <input type="text" name="photoacti"  placeholder="Photo Activity"/>
         </div>
         <button type="submit">Save</button>
       </form>

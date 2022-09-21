@@ -33,13 +33,15 @@ export default function Detail() {
         </div>
         <div className="Detail_content">
           <h2 className="Detail_card_title">{newCity?.city}</h2>
-          <h3>Country: {newCity?.country}</h3>
-          <p className="Detail-Text">Population: {newCity?.population}</p>
-          <p className="Detail-Text">Fundation: {date.getFullYear()}</p>
+          <p className="Detail-Text">Country: <strong>{newCity?.country}</strong></p>
+          <p className="Detail-Text">Population: <strong>{newCity?.population}</strong></p>
+          <p className="Detail-Text">Fundation: <strong>{date.getFullYear()}</strong></p>
           <p className="Detail-Text">
             Description:{" "}
-            {newCity?.description ? newCity?.description.slice(0, 140) : null}
-            ...
+            <strong>
+                {newCity?.description ? newCity?.description.slice(0, 140) : null}
+                ...
+            </strong>
           </p>
           <LinkRouter to="/cities" className="btn-details">
             Go back
@@ -54,6 +56,7 @@ export default function Detail() {
         :
         null
       }
+      <h2 className="title-itineraries" >ITINERARY</h2>
       {findItinerary?.map((item) => (
         <Itinerarty item={item} key={item._id} />
       ))}
