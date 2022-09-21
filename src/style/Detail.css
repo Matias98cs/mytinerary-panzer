@@ -1,70 +1,72 @@
 
-.Detail-container2{
+.Details-city-contaier{
     min-height: 79.5vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-}
-
-.Detail_cards{
     width: 100%;
+    flex-direction: column;
+}
+
+.Details_cards{
     display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #dcd7c9af;
-    padding-top: 2em;
-}
-
-.Detail_cards_item{
-    display: flex;
-    justify-content: center;
-}
-
-.Detail_card{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    padding: 1rem;
+    gap: 1.5rem;
 }
 
 .Detail_image{
-    width: 100%;
-    height: 700px;
-    padding: 1rem;
-    
-}
+    display: flex;
+    height: 400px;
 
+}
 
 .Detail_image img{
-    width: 100%;
-    height: 95%;
-    object-fit: contain;
+    object-fit: cover;
 }
-.btn{
-    width: 90%;
+.btn-details {
+    width: 300px;
     align-self: center;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #A27B5C;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    border-radius: .5rem;
 }
+
+.btn-details:hover {
+    color: white;
+    background-color: #3F4E4F;
+}
+
 .Detail_content {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: 1em;
+    width: 1000px;
 }
 
 .Detail-Text{
     font-size: larger;
 }
 
-.Detail_card_title{
-    padding-top: 3rem;
+.form-activities {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
 }
 
 footer{
     min-height: 8vh;
 }
-
+/* 
 @media (max-width: 2400px){
     
     .Detail_card{
@@ -172,4 +174,4 @@ footer{
         padding-left:2rem;
     }
     
-}
+} */
