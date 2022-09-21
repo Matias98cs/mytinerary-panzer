@@ -102,8 +102,8 @@ export default function Menu() {
                     <LinkRouter onClick={signOut} to="#">
                       Log Out
                     </LinkRouter>
-                    <LinkRouter to="/auth/signup">Add new admin</LinkRouter>
-                    <LinkRouter to="/auth/signup">Add new user</LinkRouter>
+                    <LinkRouter to="/auth/signup" state={{role: "admin"}} >Add new admin</LinkRouter>
+                    <LinkRouter to="/auth/signup" state={{role: "user"}}>Add new user</LinkRouter>
                   </>
                 ) : (
                   <>
