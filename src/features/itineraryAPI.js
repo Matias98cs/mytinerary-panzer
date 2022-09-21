@@ -10,9 +10,18 @@ export const itineraryAPI = createApi({
     endpoints: (builder) => ({
         getAllItineraries: builder.query({
             query: (cityId) => `/itineraries/query?city=${cityId}`
+        }),
+        getPostNewItinerary: builder.mutation({
+            query(payload){
+                return{
+                    url: '/itineraries',
+                    method: 'POST',
+                    body: payload
+                }
+            }
         })
     })
 })
 
 export default itineraryAPI;
-export const {useGetAllItinerariesQuery} = itineraryAPI
+export const {useGetAllItinerariesQuery, useGetPostNewItineraryMutation} = itineraryAPI
