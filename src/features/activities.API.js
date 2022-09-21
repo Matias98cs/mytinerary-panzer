@@ -16,7 +16,8 @@ export const actitiesAPI = createApi({
                 url: `http://localhost:4000/activities/update-activity/${playload._id}`,
                 method: "PATCH",
                 body: playload
-
+            })
+        }),
         createActivity: builder.mutation({
             query: (payload) => ({
                 url: '/activities',
@@ -28,6 +29,7 @@ export const actitiesAPI = createApi({
     })
 
 })
+
 
 export default actitiesAPI
 export const { useGetActivityQuery, useUpdateActivityMutation, useCreateActivityMutation } = actitiesAPI
