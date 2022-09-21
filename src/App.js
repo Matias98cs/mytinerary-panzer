@@ -16,6 +16,7 @@ import MyTineraries from './pages/MyTineraries';
 import { useSignInTokenMutation } from './features/usersAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from './features/userSlice';
+import PatchItinerary from './components/PatchItinerary';
 
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
           :
           <SignIn />
         } />
+        <Route path='/edit-itinerary/:id' element={<PatchItinerary/>}/>
         <Route path='*' element={<PageNotFound />} />
         <Route path='/mytinerary/mytineraries' element= {<MyTineraries />} />
 
