@@ -29,6 +29,7 @@ export const commenstAPI = createApi({
             query: (playload) => ({
                 url:`http://localhost:4000/comments/${playload.id}`,
                 method: 'PATCH',
+                body: playload,
                 headers:{ Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
         })
