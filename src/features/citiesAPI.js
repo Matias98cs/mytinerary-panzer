@@ -17,6 +17,12 @@ export const citiesAPI = createApi({
         getCityById: builder.query({
             query: (id) => `/cities/${id}`
         }),
+        getCityForId: builder.mutation({
+            query: (id) => ({
+                url: `/cities/${id}`,
+                method: 'GET'
+            })
+        }),
         getPostNewCity: builder.mutation({
             query(payload){
                 return{
@@ -39,4 +45,4 @@ export const citiesAPI = createApi({
 
 
 export default citiesAPI;
-export const {useGetAllcitiesQuery, useGetCityNameQuery, useGetPostNewCityMutation, useGetUpdateCityMutation, useGetCityByIdQuery} = citiesAPI;
+export const {useGetAllcitiesQuery, useGetCityNameQuery, useGetPostNewCityMutation, useGetUpdateCityMutation, useGetCityByIdQuery, useGetCityForIdMutation} = citiesAPI;

@@ -1,7 +1,7 @@
 import Activity from "./Activity";
-import Comments from "./Comments";
 import '../style/Itinerary.css'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LikeDislike from "./like/LikeDislike";
 
 
 function Itinerary({ item }) {
@@ -22,9 +22,10 @@ function Itinerary({ item }) {
       <div className="itinerary-title">
         <h3>{item.name}</h3>
       </div>
-      <Activity data={item._id} />
+      <Activity data={item._id}  />
       <div className="itinerary-price">
         <p>Duration: {item.duration}hs</p>
+        <LikeDislike item={item}/>
         <p>Price: ${item.price}</p>
       </div>
       <div className='itinerary-comment-container'>
