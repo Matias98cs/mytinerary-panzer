@@ -2,8 +2,6 @@ import Activity from "./Activity";
 import '../style/Itinerary.css'
 import React, { useEffect, useState } from "react";
 import LikeDislike from "./like/LikeDislike";
-import { useDispatch, useSelector } from "react-redux";
-import { setLike } from "../features/likeSlice";
 
 
 function Itinerary({ item }) {
