@@ -1,28 +1,70 @@
-import React from 'react'
-import { useGetCommentsQuery } from "../features/commentsAPI"
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useGetCommentsQuery, useDeletCommentsMutation } from "../features/commentsAPI"
+import NewComment from './NewComment'
 
 function DisplayComments({ id }) {
 
+    const [open, setOpen] = useState(false)
+    const [commentDelete] = useDeletCommentsMutation()
     const { data: comments } = useGetCommentsQuery(id)
-    console.log(comments?.response)
     let texto = comments?.response
+    const userId = useSelector(state => state.auth.userId)
+    const showInput = () => {
+        if (open === true) {
+            setOpen(false);
+        }else {
+            setOpen(true);
+        }
+    }
+
+    async function deleteComment(idComment) {
+
+        try {
+            let res = await commentDelete(idComment)
+            if (res.data?.success) {
+                console.log(res.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div className='itinerary-comment-messages'>
             <h3>Comments !</h3>
-            {texto?.map((item)=>
+            {texto?.map((item) =>
+
                 <div className="itinerary-comment-users">
                     <div className="itinerary-profile">
-                    <img src={item?.user.photo} width="50px"  alt=""/>                    
+                        <img src={item?.user.photo} width="50px" alt="" />
                     </div>
-                    <div className= "itinerary-comment-user">
+                    <div className="itinerary-comment-user">
                         <p>{item?.user.name}</p>
                         <p>{item?.comment}</p>
                     </div>
+                    {
+                        item?.user._id == userId
+                            ?
+                            <>
+                                <button onClick={() => deleteComment(item?._id)} type="submit">x</button>
+                                <button onClick={showInput} type="submit">Edit</button>
+                                {
+                                    open 
+                                    ?
+                                    <input type="text" name="comment"/>
+                                    :
+                                    null
+                                }
+
+                            </>
+                            :
+                            null
+                    }
                 </div>
             )}
+
             <div className="comment-input-div">
-                <input type="text" name="comment" id="comment-input" placeholder="Write your comment here!" />
-                <svg strokeWidth="currentColor" fill="currentColor" viewBox="0 0 24 24" className="sendComment" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                <NewComment id={id} />
             </div>
         </div>
     )
