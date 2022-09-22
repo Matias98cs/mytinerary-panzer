@@ -1,22 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/Detail.css";
 import { useParams } from "react-router-dom";
 import { Link as LinkRouter } from "react-router-dom";
-import { useGetCityByIdQuery } from "../features/citiesAPI";
-import { useGetAllItinerariesQuery } from "../features/itineraryAPI";
+import {
+  useGetCityByIdQuery,
+  useGetCityForIdMutation,
+} from "../features/citiesAPI";
+import {
+  useGetAllItinerariesQuery,
+  useItinerariesForDetailsMutation,
+} from "../features/itineraryAPI";
 import Itinerarty from "./Itinerary";
 import NewItinerary from "../pages/NewItinerary";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Detail() {
   const [open, setOpen] = useState(false);
   const { id } = useParams();
-  const { data: cities } = useGetCityByIdQuery(id);
-  const { data: itinerary } = useGetAllItinerariesQuery(id);
+  const [dataCity, setDataCity] = useState({});
+  const [dataItinerary, setDataItinerary] = useState([]);
+  const [getOneCity] = useGetCityForIdMutation();
+  const [getItineraries] = useItinerariesForDetailsMutation();
   const logged = useSelector((state) => state.auth.logged);
-  let newCity = cities?.response;
+  let newCity = dataCity;
   let date = new Date(newCity?.fundation);
-  let findItinerary = itinerary?.response;
+  let findItinerary = dataItinerary;
+  const reload = useSelector(state => state.like.reload) 
+
+  useEffect(() => {
+    getCity();
+  }, [reload, id]);
+
+
+  async function getCity() {
+    try {
+      let res = await getOneCity(id);
+      if (res.data.success) {
+        setDataCity(res.data.response);
+        let resIt = await getItineraries(id);
+        if (resIt.data.success) {
+          setDataItinerary(resIt.data.response);
+        }
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const handleOpenMenu = () => {
     if (open === true) {
