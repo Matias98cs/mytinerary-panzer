@@ -6,7 +6,7 @@ import commenstAPI from './features/commentsAPI';
 import usersAPI from './features/usersAPI';
 import myTineraryAPI from './features/myTineraryAPI';
 import userReducer from './features/userSlice';
-import likeSlice from './features/likeSlice';
+import likeSlice  from './features/likeSlice';
 
 export default configureStore({
     reducer: {
