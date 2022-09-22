@@ -1,7 +1,9 @@
 import Activity from "./Activity";
-import Comments from "./Comments";
 import '../style/Itinerary.css'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LikeDislike from "./like/LikeDislike";
+import { useDispatch, useSelector } from "react-redux";
+import { setLike } from "../features/likeSlice";
 
 
 function Itinerary({ item }) {
@@ -22,9 +24,10 @@ function Itinerary({ item }) {
       <div className="itinerary-title">
         <h3>{item.name}</h3>
       </div>
-      <Activity data={item._id} />
+      <Activity data={item._id}  />
       <div className="itinerary-price">
         <p>Duration: {item.duration}hs</p>
+        <LikeDislike item={item}/>
         <p>Price: ${item.price}</p>
       </div>
       <div className='itinerary-comment-container'>
