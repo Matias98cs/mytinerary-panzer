@@ -6,6 +6,7 @@ import commenstAPI from './features/commentsAPI';
 import usersAPI from './features/usersAPI';
 import myTineraryAPI from './features/myTineraryAPI';
 import userReducer from './features/userSlice';
+import likeSlice from './features/likeSlice';
 
 export default configureStore({
     reducer: {
@@ -15,7 +16,8 @@ export default configureStore({
         [commenstAPI.reducerPath]: commenstAPI.reducer,
         [usersAPI.reducerPath]: usersAPI.reducer,
         [myTineraryAPI.reducerPath]: myTineraryAPI.reducer,
-        auth: userReducer
+        auth: userReducer,
+        like: likeSlice
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(citiesAPI.middleware)
