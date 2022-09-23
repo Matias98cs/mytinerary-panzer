@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetItineraryQuery } from '../features/itineraryAPI';
 import { useGetActivityQuery } from '../features/activities.API';
@@ -7,6 +7,9 @@ import { useUpdateActivityMutation } from '../features/activities.API';
 import { useUpdateItineraryMutation } from '../features/itineraryAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMessage } from '../features/messageSlice';
+
+import { setReload } from '../features/likeSlice';
+
 
 export default function PatchItinerary() {
     let formIti = useRef()
@@ -37,23 +40,22 @@ export default function PatchItinerary() {
         const formItinerary = new FormData(formIti.current)
         const values = Object.fromEntries(formItinerary)
         let updateItini = {
-            _id: itineraryData._id,
+            id: itineraryData._id,
             name: values.name,
             user: userId,
             price: values.price,
             city: itineraryData.city,
             tags: [values.tags],
-            likes: [values.likes],
+            likes:[ itineraryData.likes],
             duration: values.duration
         }
         let updateActi = {
-            _id: activityData[0]._id,
+            id: activityData[0]._id,
             name: values.name_acti_0,
             photo: values.photo_acti_0,
             itinerary: itineraryData._id
         }
         
-
         sendItiAndActi(updateItini, updateActi) 
 
     }
@@ -62,15 +64,22 @@ export default function PatchItinerary() {
             let res = await patchItinerary(dataIti)
             if(res.data?.success){
                 console.log(res.data)
+                dispatch(setReload())
                 let resAc = await patchActivity(dataActi)
-                if (res.data?.success){
+                if (resAc.data?.success){
                     console.log(resAc.data)
                     dispatch(setMessage({
                         message: 'Itinerary updated',
                         success: true
                     }))
+                    dispatch(setReload())
+
                     navigate('/mytinerary/mytineraries', {replace:true})
+                }else{
+                    console.log(resAc.error)
                 }
+            }else{
+                console.log(res.error.data)
             }
 
         } catch (error) {

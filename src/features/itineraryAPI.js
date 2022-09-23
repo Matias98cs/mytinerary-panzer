@@ -27,8 +27,8 @@ export const itineraryAPI = createApi({
       query: (id) => `http://localhost:4000/itineraries/finditinerary/${id} `,
     }),
     updateItinerary: builder.mutation({
-      query: (payload) => ({
-        url: `http://localhost:4000/itineraries/${payload._id}`,
+      query: ({id, ...payload}) => ({
+        url: `http://localhost:4000/itineraries/${id}`,
         method: "PATCH",
         body: payload,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

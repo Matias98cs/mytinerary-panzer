@@ -12,10 +12,10 @@ export const actitiesAPI = createApi({
         }),
 
         updateActivity: builder.mutation({
-            query: (playload) => ({
-                url: `http://localhost:4000/activities/update-activity/${playload._id}`,
+            query: ({id, ...payload}) => ({
+                url: `http://localhost:4000/activities/update-activity/${id}`,
                 method: "PATCH",
-                body: playload,
+                body: payload,
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
         }),
