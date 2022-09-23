@@ -1,11 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetItineraryQuery } from '../features/itineraryAPI';
 import { useGetActivityQuery } from '../features/activities.API';
 import "../style/PatchItini.css"
 import { useUpdateActivityMutation } from '../features/activities.API';
 import { useUpdateItineraryMutation } from '../features/itineraryAPI';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setReload } from '../features/likeSlice';
 
 export default function PatchItinerary() {
     let formIti = useRef()
@@ -16,15 +17,12 @@ export default function PatchItinerary() {
     const [patchItinerary] = useUpdateItineraryMutation()
     const [patchActivity] = useUpdateActivityMutation()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
-    /* console.log(userId) */
-    /* console.log(activities?.response) */
-    /* console.log(itinerary?.response) */
     let itineraryData = itinerary?.response
     let activityData = activities?.response
     
     function showActivity (item, i){
-        /* console.log(i) */
         return (
             <div className='patchItini-container' key={item?._id}>
             <p>Name:</p>
@@ -38,26 +36,25 @@ export default function PatchItinerary() {
         e.preventDefault()
         const formItinerary = new FormData(formIti.current)
         const values = Object.fromEntries(formItinerary)
-        /* console.log(values) */
         let updateItini = {
-            _id: itineraryData._id,
+            id: itineraryData._id,
             name: values.name,
             user: userId,
             price: values.price,
             city: itineraryData.city,
             tags: [values.tags],
-            likes: [values.likes],
+            likes:[ itineraryData.likes],
             duration: values.duration
         }
         let updateActi = {
-            _id: activityData[0]._id,
+            id: activityData[0]._id,
             name: values.name_acti_0,
             photo: values.photo_acti_0,
             itinerary: itineraryData._id
         }
         
         console.log(updateActi)
-        /* console.log(updateItini) */
+        console.log(updateItini)
 
         sendItiAndActi(updateItini, updateActi) 
 
@@ -67,11 +64,17 @@ export default function PatchItinerary() {
             let res = await patchItinerary(dataIti)
             if(res.data?.success){
                 console.log(res.data)
+                dispatch(setReload())
                 let resAc = await patchActivity(dataActi)
-                if (res.data?.success){
+                if (resAc.data?.success){
                     console.log(resAc.data)
+                    dispatch(setReload())
                     navigate('/mytinerary/mytineraries', {replace:true})
+                }else{
+                    console.log(resAc.error)
                 }
+            }else{
+                console.log(res.error.data)
             }
 
         } catch (error) {
@@ -90,8 +93,6 @@ export default function PatchItinerary() {
             <input type="number" name="price" defaultValue={itineraryData?.price}/>
             <p>Tags: {itineraryData?.tags} </p>
             <input type="text" name="tags" defaultValue={itineraryData?.tags}/>
-            <p>Likes: {itineraryData?.likes} </p>
-            <input type="text" name="likes" defaultValue={itineraryData?.likes}/>
         </div>
         <div className='patchItini-general'>
             {activityData?.map((item, i)=>showActivity(item, i))}
