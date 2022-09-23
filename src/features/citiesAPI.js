@@ -38,7 +38,8 @@ export const citiesAPI = createApi({
             query: post => ({
                 url: `cities/${post._id}`,
                 method: 'PATCH',
-                body: post
+                body: post,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             })
         })
     })
