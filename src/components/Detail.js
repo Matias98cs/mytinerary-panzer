@@ -27,11 +27,6 @@ export default function Detail() {
   let findItinerary = dataItinerary;
   const reload = useSelector(state => state.like.reload) 
 
-  useEffect(() => {
-    getCity();
-  }, [reload, id]);
-
-
   async function getCity() {
     try {
       let res = await getOneCity(id);
@@ -56,6 +51,10 @@ export default function Detail() {
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    getCity();
+  }, [reload, id]);
 
   return (
     <div className="Details-city-contaier">
