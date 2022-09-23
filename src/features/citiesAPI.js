@@ -28,7 +28,8 @@ export const citiesAPI = createApi({
                 return{
                     url: 'cities',
                     method: 'POST',
-                    body: payload
+                    body: payload,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                 }
             },
             invalidatesTags: ['Post'],
