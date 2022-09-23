@@ -27,10 +27,10 @@ export const itineraryAPI = createApi({
             query: (id) => `http://localhost:4000/itineraries/finditinerary/${id} `
         }),
         updateItinerary: builder.mutation({
-            query: (playload) => ({
-                url: `http://localhost:4000/itineraries/${playload._id}`,
+            query: (payload) => ({
+                url: `http://localhost:4000/itineraries/${payload._id}`,
                 method: "PATCH",
-                body: playload
+                body: payload
             })
         }),
         getPostNewItinerary: builder.mutation({
