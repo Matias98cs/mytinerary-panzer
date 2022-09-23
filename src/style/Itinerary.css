@@ -72,14 +72,15 @@ h2 {
 }
 
 .itinerary-comment-users{
-    display: flex;
+    display: grid;
+    grid-template-columns: 50px 200px 1fr;
+    align-items: center;
     width: 85vw;
     border-radius: 20px;
     padding: .5rem;
     margin: .5rem;
     box-shadow: 0 3px 3px 0 rgb (0 0 0 / 60%);
     background-color: rgba(73, 73, 73, 0.478);
-    align-self: center;
     gap: 1rem;
 }
 .itinerary-comment-container h3{
@@ -90,6 +91,53 @@ h2 {
 .itinerary-profile{
     display: flex;
     align-items: center;
+}
+
+.itinerary-comment-user {
+
+}
+
+.itinerary-comments-btns {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 10px 0 0;
+    gap: 1rem;
+}
+
+.itinerary-comments-btns button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.form-edit-comment {
+    display: flex;
+    gap: .5rem;
+}
+
+.form-edit-comment input {
+    border: none;
+    border-radius: 1rem;
+    padding: .5rem;
+}
+.form-edit-comment button {
+    background-color: #A27B5C;
+    border-radius: 1rem;
+    padding: .5rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.formulario-new-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+.formulario-new-comment button {
+    background-color: transparent;
+    border: none;
 }
 
 .itinerary-profile img{
@@ -120,6 +168,9 @@ h2 {
 #comment-input{
     width: 84vw;
     height: 25px;
+    border: none;
+    color: white ;
+    padding: .4rem;
     border-radius: 10px;
     background-color: rgba(73, 73, 73, 0.148);
     font-weight: bolder;
@@ -139,6 +190,7 @@ h2 {
     font-size: 30px;
     cursor: pointer;
 }
+
 
 @media (max-width: 375px){
     .itinerar-activity-photo img{
