@@ -15,15 +15,16 @@ export const actitiesAPI = createApi({
             query: (playload) => ({
                 url: `http://localhost:4000/activities/update-activity/${playload._id}`,
                 method: "PATCH",
-                body: playload
+                body: playload,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
         }),
         createActivity: builder.mutation({
             query: (payload) => ({
                 url: '/activities',
                 method: 'POST',
-                body: payload
-
+                body: payload,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
         })
     })
