@@ -6,7 +6,10 @@ import "../style/PatchItini.css"
 import { useUpdateActivityMutation } from '../features/activities.API';
 import { useUpdateItineraryMutation } from '../features/itineraryAPI';
 import { useDispatch, useSelector } from 'react-redux';
+import { setMessage } from '../features/messageSlice';
+
 import { setReload } from '../features/likeSlice';
+
 
 export default function PatchItinerary() {
     let formIti = useRef()
@@ -53,9 +56,6 @@ export default function PatchItinerary() {
             itinerary: itineraryData._id
         }
         
-        console.log(updateActi)
-        console.log(updateItini)
-
         sendItiAndActi(updateItini, updateActi) 
 
     }
@@ -68,7 +68,12 @@ export default function PatchItinerary() {
                 let resAc = await patchActivity(dataActi)
                 if (resAc.data?.success){
                     console.log(resAc.data)
+                    dispatch(setMessage({
+                        message: 'Itinerary updated',
+                        success: true
+                    }))
                     dispatch(setReload())
+
                     navigate('/mytinerary/mytineraries', {replace:true})
                 }else{
                     console.log(resAc.error)

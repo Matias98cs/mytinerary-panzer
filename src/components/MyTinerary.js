@@ -5,6 +5,7 @@ import "../style/MyTinerary.css";
 import { Link as LinkRouter } from "react-router-dom";
 import { useDeleteItineraryMutation } from "../features/itineraryAPI";
 import {setReload} from '../features/likeSlice'
+import {setMessage} from '../features/messageSlice'
 
 const MyTinerary = () => {
   const [itineraryDelete] = useDeleteItineraryMutation()
@@ -33,8 +34,13 @@ const MyTinerary = () => {
       let res = await itineraryDelete(key)
       if(res.data?.success){
         dispatch(setReload())
+        dispatch(setMessage({
+          message: 'Deleted itinerary',
+          success: true
+        }))
       }else{
         console.log(res.data)
+        
       }
     } catch (error) {
       
