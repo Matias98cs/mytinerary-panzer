@@ -1,18 +1,50 @@
 import React, { useEffect, useState} from "react";
-import { useSelector } from "react-redux";
-import { useGetAllItinerariesQuery } from "../features/myTineraryAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetAllItinerariesQuery, useItinerariesAllMutation } from "../features/myTineraryAPI";
 import "../style/MyTinerary.css";
 import { Link as LinkRouter } from "react-router-dom";
 import { useDeleteItineraryMutation } from "../features/itineraryAPI";
+import {setReload} from '../features/likeSlice'
 
 const MyTinerary = () => {
   const [itineraryDelete] = useDeleteItineraryMutation()
   const userId = useSelector(state => state.auth.userId)
-  const { data : user, error, isLoading } = useGetAllItinerariesQuery(userId);  
-  let userDetail = user?.response
-  function deleteItinerary(key) {
-    itineraryDelete(key)
+  const [itine, setItine] = useState([])
+  const [findItineraries] = useItinerariesAllMutation()
+  const dispatch = useDispatch()
+  const reload = useSelector(state => state.like.reload)
+  const user = useSelector(state => state.auth.user)
+
+  async function getItireraries() {
+    try {
+      let res = await findItineraries(userId)
+      if(res.data?.success){
+        setItine(res.data.response)
+      }else{
+        console.log(res.error.data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  async function deleteItinerary(key) {
+    try {
+      let res = await itineraryDelete(key)
+      if(res.data?.success){
+        dispatch(setReload())
+      }else{
+        console.log(res.data)
+      }
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(() => {
+    getItireraries()
+  }, [reload, userId])
+  
 
   const showItinerary = (item) => {
     return (
@@ -38,24 +70,24 @@ const MyTinerary = () => {
   };
   return (
     <>
-      {user ? (
+      {itine.length > 0 ? (
         <> 
           <div className="mytinerary-container">
             <h1>My Tineraries</h1>
             <img
               className="mytinerary-img"
-              src={userDetail[0].user.photo}
+              src={user.photo}
               alt="photo"
             />
             <div className="mytinerary-user">
               <div className="mytinerary-profile">
-                <h3>{userDetail[0].user?.name}</h3>
-                <h3>{userDetail[0].user?.mail}</h3>
+                <h3>{user.name}</h3>
+                <h3>{user.mail}</h3>
               </div>
             </div>
           </div>
           <div className="mytinerary-general">
-            {user && user.response?.map(showItinerary)}
+            {itine?.map(showItinerary)}
           </div>
         </>
       ) : (
