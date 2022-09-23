@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    reload: null,
+    reload: false,
 }
 
 export const likeSlice = createSlice({
@@ -11,7 +11,7 @@ export const likeSlice = createSlice({
 
     reducers: {
         setReload: (state, action) => {
-            state.reload = action.payload
+            state.reload = !state.reload
         },
         
     }
