@@ -10,6 +10,12 @@ export const commenstAPI = createApi({
         getComments: builder.query({
             query: (itineraryId) => `/comments/query?itinerary=${itineraryId}`
         }),
+        commentsAll: builder.mutation({
+            query: (id) => ({
+                url: `/comments/query?itinerary=${id}`,
+                method: 'GET'
+            })
+        }),
         createComments: builder.mutation({
             query: (playload) => ({
                 url: `http://localhost:4000/comments`,
@@ -26,10 +32,10 @@ export const commenstAPI = createApi({
             })
         }),
         updateComments: builder.mutation({
-            query: (playload) => ({
-                url:`http://localhost:4000/comments/${playload.id}`,
+            query: ({id, ...data}) => ({
+                url:`comments/${id}`,
                 method: 'PATCH',
-                body: playload,
+                body: data,
                 headers:{ Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
         })
@@ -37,4 +43,4 @@ export const commenstAPI = createApi({
 })
 
 export default commenstAPI
-export const { useGetCommentsQuery, useCreateCommentsMutation, useDeletCommentsMutation } = commenstAPI
+export const { useCommentsAllMutation ,useUpdateCommentsMutation ,useGetCommentsQuery, useCreateCommentsMutation, useDeletCommentsMutation } = commenstAPI
