@@ -59,7 +59,6 @@ const MyTinerary = () => {
           <div className="mytinerary-duration">
             <p>Duration: {item?.duration} hours</p>
             <p>Price: ${item?.price}</p>
-            <p>Likes: {item?.likes}</p>
             <p>{item?.tags}</p>
           </div>
           <LinkRouter className="mytinerary-btn-edit" to={ `/edit-itinerary/${item?._id} `}>Edit itinerary</LinkRouter>
