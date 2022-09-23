@@ -1,14 +1,16 @@
 import React, { useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import itineraryAPI, { useGetPostNewItineraryMutation } from "../features/itineraryAPI";
 import { useCreateActivityMutation } from "../features/activities.API";
 import "../style/NewItinerary.css";
+import { setReload } from "../features/likeSlice";
 
 function NewItinerary({ name, id }) {
   const formRef = useRef();
   const userId = useSelector(state => state.auth.userId)
   const [postItinerary] = useGetPostNewItineraryMutation()
   const [postActivity] = useCreateActivityMutation()
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +39,13 @@ function NewItinerary({ name, id }) {
         let res = await postItinerary(dataIti)
         if(res.data?.success){
             dataActi.itinerary = res.data.response._id
-            await postActivity(dataActi)
+            let resAct = await postActivity(dataActi)
+            if(resAct.data?.success){
+              console.log(resAct.data)
+              dispatch(setReload())
+            }else{
+              console.log(resAct.error)
+            }
         }
     }catch(error){
         console.log(error)
