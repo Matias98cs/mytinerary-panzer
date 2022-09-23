@@ -3,22 +3,24 @@ import "../style/InputsCities.css";
 import InputForm from "./InputsForm/InputForm";
 import { useGetPostNewCityMutation } from "../features/citiesAPI";
 import Alerts from "./Alert/Alerts";
+import { useDispatch } from "react-redux";
+import {setReload} from '../features/likeSlice'
 
 export default function InputsNewCity() {
   const formRef = useRef();
   const [error, setError] = useState("");
-
+  const dispatch = useDispatch()
   const [addNewPost] = useGetPostNewCityMutation();
 
-  function sendCity(values) {
-    addNewPost(values)
-      .unwrap()
-      .then((succes) => {
-        setError("City created")
-      })
-      .catch((error) => {
-        setError(error.data.message);
-      });
+  async function sendCity(values) {
+    try {
+      let res = await addNewPost(values)
+      if(res.data?.success){
+        dispatch(setReload())
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleSubmit = (e) => {
