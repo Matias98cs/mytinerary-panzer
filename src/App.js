@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from './features/userSlice';
 import PatchItinerary from './components/PatchItinerary';
 import NewItinerary from './pages/NewItinerary';
+import Alerts from './components/Alert/Alerts';
 
 
 
@@ -28,6 +29,7 @@ function App() {
   const logged = useSelector(state => state.auth.logged)
   const role = useSelector(state => state.auth.role)
   const [admin , setAdmin] = useState()
+  const alert = useSelector(state => state.message)
 
   async function verifyToken(){
     try{
@@ -90,7 +92,7 @@ function App() {
         </Routes>
 
       </WebsiteLayout>
-
+      <Alerts />
     </BrowserRouter>
   );
 }

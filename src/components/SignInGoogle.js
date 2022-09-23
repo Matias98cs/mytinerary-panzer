@@ -1,15 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as jose from "jose";
 import { useGetSignInUserMutation } from "../features/usersAPI";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../features/userSlice";
+import Alerts from "./Alert/Alerts";
+import { setMessage } from "../features/messageSlice";
 
 function SingInGoogle() {
     const divBtn = useRef(null);
     const [singInUser] = useGetSignInUserMutation()
     const dispath = useDispatch()
     const navigate = useNavigate()
+    const [msg, setMsg] = useState()
+    
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
@@ -24,7 +28,12 @@ function SingInGoogle() {
             let res = await singInUser(data)
             if(res.data?.success){
                 dispath(setAuthUser(res.data.response.user))
+                dispath(setMessage({
+                    message: res.data?.message,
+                    success: res.data?.success
+                }))
                 localStorage.setItem('token', res.data.response.token)
+                // setMsg(res.data)
                 navigate("/", {replace: true})
             }else {
                 console.log(res.error)
@@ -52,6 +61,7 @@ function SingInGoogle() {
 
         <div>
             <div ref={divBtn}></div>
+            {/* <Alerts msg={msg} /> */}
         </div>
 
     );

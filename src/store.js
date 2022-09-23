@@ -7,6 +7,7 @@ import usersAPI from './features/usersAPI';
 import myTineraryAPI from './features/myTineraryAPI';
 import userReducer from './features/userSlice';
 import likeSlice  from './features/likeSlice';
+import messageSlice from './features/messageSlice';
 
 export default configureStore({
     reducer: {
@@ -17,7 +18,8 @@ export default configureStore({
         [usersAPI.reducerPath]: usersAPI.reducer,
         [myTineraryAPI.reducerPath]: myTineraryAPI.reducer,
         auth: userReducer,
-        like: likeSlice
+        like: likeSlice,
+        message: messageSlice
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(citiesAPI.middleware)
