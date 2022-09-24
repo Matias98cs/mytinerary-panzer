@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Selects from "./Selects";
 import InputEdit from "./InputEdit";
 import "../../style/FormEditCity.css";
@@ -8,14 +8,16 @@ import {
 } from "../../features/citiesAPI";
 import Alerts from "../Alert/Alerts";
 import {setMessage} from '../../features/messageSlice'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {setReload} from '../../features/likeSlice'
 
 
 function EditForm() {
   const formRef = useRef();
   const [error, setError] = useState("");
+  const reload = useSelector(state => state.like.reload)
   const [valueSelect, setValueSelect] = useState("");
-  let { data: city } = useGetCityByIdQuery(valueSelect);
+  let { data: city, refetch } = useGetCityByIdQuery(valueSelect);
   const [UpdateNewCity] = useGetUpdateCityMutation();
   const dispatch = useDispatch()
 
@@ -28,6 +30,7 @@ function EditForm() {
     const formCities = document.querySelector("#form-cities");
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
+    values.id = city.response?._id
     if(values.city == "" || values.country == "" || values.population == "" || values.fundation == "" || values.photo == ""){
       dispatch(setMessage({
         message: 'Please enter all data',
@@ -39,6 +42,7 @@ function EditForm() {
         .then((resp) => {
           formCities.reset();
           setValueSelect("");
+          dispatch(setReload())
           dispatch(setMessage({
             message: "The city was edited",
             success: true
@@ -52,6 +56,10 @@ function EditForm() {
         });
     }
   };
+
+  useEffect(() => {
+    refetch()
+  }, [reload])
 
   return (
     <>
