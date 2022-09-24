@@ -6,12 +6,17 @@ import {
   useGetCityNameQuery,
   useGetAllcitiesQuery,
 } from "../features/citiesAPI";
+import { useSelector } from "react-redux";
 
 function CardsAndFind() {
   const [find, setFind] = useState("");
-
-  const { data: cities } = useGetAllcitiesQuery();
+  const reload = useSelector(state => state.like.reload)
+  const { data: cities, refetch } = useGetAllcitiesQuery();
   const { data: cityFind } = useGetCityNameQuery(find);
+
+  useEffect(() => {
+    refetch()
+  }, [reload])
 
   function inputSearch(name) {
     setFind(name);
