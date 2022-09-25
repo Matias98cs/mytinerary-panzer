@@ -67,7 +67,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
+    background-color: #DCD7C9;
+    border-radius: 100%;
+    padding: .5rem;
 }
 
 @media (max-width:1024px){
