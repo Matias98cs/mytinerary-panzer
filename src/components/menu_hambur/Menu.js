@@ -64,15 +64,17 @@ export default function Menu() {
       mail: user.mail
     }
     try{
-      await signoutUser(sendEmail)
-      dispatch(setMessage({
-        message: "See you soon",
-        success: true
-      }))
-      dispatch(setReload())
-      localStorage.removeItem('token')
-      dispatch(deleteAuthUser())
-      navigate("/", {replace: true})
+      let res = await signoutUser(sendEmail)
+      if(res.data?.success){
+        dispatch(setReload())
+        dispatch(deleteAuthUser())
+        localStorage.removeItem('token')
+        navigate("/", {replace: true})
+        dispatch(setMessage({
+          message: "See you soon",
+          success: true
+        }))
+      }
 
     }catch(error){
       console.log(error)
