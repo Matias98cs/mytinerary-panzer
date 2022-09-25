@@ -4,7 +4,6 @@ import { useGetSignInUserMutation } from "../features/usersAPI";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../features/userSlice";
-import Alerts from "./Alert/Alerts";
 import { setMessage } from "../features/messageSlice";
 
 function SingInGoogle() {
@@ -61,7 +60,6 @@ function SingInGoogle() {
 
         <div>
             <div ref={divBtn}></div>
-            {/* <Alerts msg={msg} /> */}
         </div>
 
     );
