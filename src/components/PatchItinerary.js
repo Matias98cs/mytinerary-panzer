@@ -13,12 +13,13 @@ export default function PatchItinerary() {
   let formIti = useRef();
   const { id } = useParams();
   const { data: itinerary } = useGetItineraryQuery(id);
-  const { data: activities } = useGetActivityQuery(id);
+  const { data: activities, refetch } = useGetActivityQuery(id);
   const userId = useSelector((state) => state.auth.userId);
   const [patchItinerary] = useUpdateItineraryMutation();
   const [patchActivity] = useUpdateActivityMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const reload = useSelector(state => state.like.reload)
 
   let itineraryData = itinerary?.response;
   let activityData = activities?.response;
@@ -88,6 +89,10 @@ export default function PatchItinerary() {
       console.log(error);
     }
   }
+
+  useEffect(() =>{
+    refetch()
+  }, [reload])
   return (
     <form className="patchItini-form" onSubmit={handleSubmit} ref={formIti}>
       <div className="patchItini-p">
