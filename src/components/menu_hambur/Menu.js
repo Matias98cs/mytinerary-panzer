@@ -4,6 +4,8 @@ import { Link as LinkRouter, useLocation, useNavigate } from "react-router-dom";
 import { useGetSignOutUserMutation } from "../../features/usersAPI";
 import {useDispatch, useSelector} from 'react-redux'
 import {deleteAuthUser} from '../../features/userSlice'
+import {setMessage} from '../../features/messageSlice'
+import { setReload } from "../../features/likeSlice";
 
 const pageDefault = [
   { name: "Home", to: "/", id: 1 },
@@ -58,9 +60,16 @@ export default function Menu() {
 
 
   async function signOut() {
-  
+    const sendEmail = {
+      mail: user.mail
+    }
     try{
-      await signoutUser(user.mail)
+      await signoutUser(sendEmail)
+      dispatch(setMessage({
+        message: "See you soon",
+        success: true
+      }))
+      dispatch(setReload())
       localStorage.removeItem('token')
       dispatch(deleteAuthUser())
       navigate("/", {replace: true})
@@ -119,7 +128,7 @@ export default function Menu() {
             ) : null}
           </div>
           <div className="Header-login">
-            <img onClick={handleOpenMenu} src={user.photo} alt="profile" />
+            <img onClick={handleOpenMenu} src={user?.photo ? user?.photo : './images/pngegg.png'} alt="profile" />
           </div>
         </nav>
       ) : (
