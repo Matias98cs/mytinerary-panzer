@@ -3,7 +3,6 @@ import React from "react";
 function InputEdit({ city }) {
   return (
     <div className="container-inputs">
-      <input id="hide-id" name="_id" defaultValue={city?._id} />
       <label htmlFor={city?.city}>
         City
         <input type="text" name="city" defaultValue={city?.city} id={city?.city} />

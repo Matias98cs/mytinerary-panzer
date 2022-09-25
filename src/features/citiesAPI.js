@@ -35,8 +35,8 @@ export const citiesAPI = createApi({
             invalidatesTags: ['Post'],
         }),
         getUpdateCity: builder.mutation({
-            query: post => ({
-                url: `cities/${post._id}`,
+            query: ({id, ...post}) => ({
+                url: `cities/${id}`,
                 method: 'PATCH',
                 body: post,
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
