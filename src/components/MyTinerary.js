@@ -58,9 +58,11 @@ const MyTinerary = () => {
   const showItinerary = (item) => {
     return (
       <div className="mytinerary-description" key={item?._id}>
+        <h3>{item?.name}</h3>
         <div className="mytinerary-content">
-          <h3>{item?.name}</h3>
-          <img src={item?.city.photo} alt="photo" />
+          <div className="myitinerary-img-title">
+            <img src={item?.city.photo} alt="photo" />
+          </div>
           <div className="mytinerary-country">
             <h3>{item?.city.country}</h3>
             <p>{item?.city.city}</p>
@@ -70,18 +72,20 @@ const MyTinerary = () => {
             <p>Price: ${item?.price}</p>
             <p>{item?.tags}</p>
           </div>
-          <LinkRouter
-            className="mytinerary-btn-edit"
-            to={`/edit-itinerary/${item?._id} `}
-          >
-            Edit itinerary
-          </LinkRouter>
-          <button
-            className="mytinerary-btn-delete"
-            onClick={() => deleteItinerary(item?._id)}
-          >
-            Delete
-          </button>
+          <div className="myitienraries-btns">
+            <LinkRouter
+              className="mytinerary-btn-edit"
+              to={`/edit-itinerary/${item?._id} `}
+            >
+              Edit itinerary
+            </LinkRouter>
+            <button
+              className="mytinerary-btn-delete"
+              onClick={() => deleteItinerary(item?._id)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -92,11 +96,13 @@ const MyTinerary = () => {
         <>
           <div className="mytinerary-container">
             <h1>My Tineraries</h1>
-            <img className="mytinerary-img" src={user.photo} alt="photo" />
             <div className="mytinerary-user">
               <div className="mytinerary-profile">
-                <h3>{user.name}</h3>
-                <h3>{user.mail}</h3>
+                <img className="mytinerary-img" src={user.photo} alt="photo" />
+                <div>
+                  <h3>{user.name.toUpperCase()}</h3>
+                  <h3>{user.mail}</h3>
+                </div>
               </div>
             </div>
           </div>
