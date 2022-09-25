@@ -90,9 +90,8 @@ function App() {
         <Route path='/mytinerary/mytineraries' element= {<MyTineraries />} />
 
         </Routes>
-
+        <Alerts />
       </WebsiteLayout>
-      <Alerts />
     </BrowserRouter>
   );
 }
