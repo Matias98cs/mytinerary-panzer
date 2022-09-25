@@ -57,13 +57,14 @@ function DisplayComments({ id }) {
     }
   }
 
+
   return (
     <div className="itinerary-comment-messages">
       <h3>Comments !</h3>
       {comments?.map((item) => (
         <div className="itinerary-comment-users" key={item?._id}>
           <div className="itinerary-profile">
-            <img src={item?.user.photo && item.user.photo} width="50px" alt="image" />
+            <img src={item?.user.photo && item?.user.photo} width="50px" alt="image" />
           </div>
           <div className="itinerary-comment-user">
             <p>{item?.user.name}</p>
