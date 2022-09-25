@@ -19,14 +19,14 @@ export default function PatchItinerary() {
   const [patchActivity] = useUpdateActivityMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const reload = useSelector(state => state.like.reload)
+  const reload = useSelector((state) => state.like.reload);
 
   let itineraryData = itinerary?.response;
   let activityData = activities?.response;
 
   function showActivity(item, i) {
     return (
-      <div className="patchItini-container" key={item?._id}>
+      <>
         <p>Name:</p>
         <input type="text" name={`name_acti_${i}`} defaultValue={item?.name} />
         <p>Photo:</p>
@@ -35,7 +35,10 @@ export default function PatchItinerary() {
           name={`photo_acti_${i}`}
           defaultValue={item?.photo}
         />
-      </div>
+        <div className="itinerary-acti-img">
+          <img src={item?.photo} />
+        </div>
+      </>
     );
   }
   const handleSubmit = (e) => {
@@ -90,31 +93,35 @@ export default function PatchItinerary() {
     }
   }
 
-  useEffect(() =>{
-    refetch()
-  }, [reload])
+  useEffect(() => {
+    refetch();
+  }, [reload]);
   return (
-    <form className="patchItini-form" onSubmit={handleSubmit} ref={formIti}>
-      <div className="patchItini-p">
-        <p>Name: {itineraryData?.name} </p>
-        <input type="text" name="name" defaultValue={itineraryData?.name} />
-        <p>Duration:</p>
-        <input
-          type="number"
-          name="duration"
-          defaultValue={itineraryData?.duration}
-        />
-        <p>Price:{itineraryData?.price} </p>
-        <input type="number" name="price" defaultValue={itineraryData?.price} />
-        <p>Tags: {itineraryData?.tags} </p>
-        <input type="text" name="tags" defaultValue={itineraryData?.tags} />
-      </div>
-      <div className="patchItini-general">
-        {activityData?.map((item, i) => showActivity(item, i))}
-      </div>
-      <button className="patchItini-btn" type="submit">
-        Save edit
-      </button>
-    </form>
+    <div className="container-form-itinerary">
+      <form className="patchItini-form" onSubmit={handleSubmit} ref={formIti}>
+        <div className="patchItini-p">
+          <p>Name:</p>
+          <input type="text" name="name" defaultValue={itineraryData?.name} />
+          <p>Duration:</p>
+          <input
+            type="number"
+            name="duration"
+            defaultValue={itineraryData?.duration}
+          />
+          <p>Price:</p>
+          <input
+            type="number"
+            name="price"
+            defaultValue={itineraryData?.price}
+          />
+          <p>Tags:</p>
+          <input type="text" name="tags" defaultValue={itineraryData?.tags} />
+          {activityData?.map((item, i) => showActivity(item, i))}
+        </div>
+        <button className="patchItini-btn" type="submit">
+          Save edit
+        </button>
+      </form>
+    </div>
   );
 }
