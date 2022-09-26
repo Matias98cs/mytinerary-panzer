@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
+import apiurl from "../api";
 export const itineraryAPI = createApi({
   reducerPath: "itineraryAPI",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/",
+    baseUrl: apiurl
   }),
   endpoints: (builder) => ({
     getAllItineraries: builder.query({
@@ -24,11 +24,11 @@ export const itineraryAPI = createApi({
       }),
     }),
     getItinerary: builder.query({
-      query: (id) => `http://localhost:4000/itineraries/finditinerary/${id} `,
+      query: (id) => `/itineraries/finditinerary/${id} `,
     }),
     updateItinerary: builder.mutation({
       query: ({id, ...payload}) => ({
-        url: `http://localhost:4000/itineraries/${id}`,
+        url: `/itineraries/${id}`,
         method: "PATCH",
         body: payload,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -46,7 +46,7 @@ export const itineraryAPI = createApi({
     }),
     likeDislike: builder.mutation({
       query: (id) => ({
-        url: `http://localhost:4000/itineraries/likes/${id}`,
+        url: `/itineraries/likes/${id}`,
         method: "PATCH",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       }),

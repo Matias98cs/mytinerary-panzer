@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import apiurl from '../api'
 
 export const actitiesAPI = createApi({
     reducerPath: "actitiesAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: apiurl
     }),
     endpoints: (builder) => ({
         getActivity: builder.query({
@@ -13,7 +14,7 @@ export const actitiesAPI = createApi({
 
         updateActivity: builder.mutation({
             query: ({id, ...payload}) => ({
-                url: `http://localhost:4000/activities/update-activity/${id}`,
+                url: `/activities/update-activity/${id}`,
                 method: "PATCH",
                 body: payload,
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }

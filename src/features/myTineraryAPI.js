@@ -1,12 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-
+import apiurl from '../api'
 
 export const myTineraryAPI = createApi({
     reducerPath: "myTineraryAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
-
+        baseUrl: apiurl
     }),
     endpoints: (builder) => ({
         getAllItineraries: builder.query({

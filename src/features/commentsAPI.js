@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import apiurl from '../api'
 
 export const commenstAPI = createApi({
     reducerPath: "commenstAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: apiurl
     }),
     endpoints: (builder) => ({
         getComments: builder.query({
@@ -18,7 +19,7 @@ export const commenstAPI = createApi({
         }),
         createComments: builder.mutation({
             query: (playload) => ({
-                url: `http://localhost:4000/comments`,
+                url: `/comments`,
                 method: "POST",
                 body: playload,
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
@@ -26,7 +27,7 @@ export const commenstAPI = createApi({
         }),
         deletComments: builder.mutation({
             query: (id) => ({
-                url:`http://localhost:4000/comments/${id}`,
+                url:`/comments/${id}`,
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
