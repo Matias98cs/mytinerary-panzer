@@ -63,7 +63,7 @@ function DisplayComments({ id }) {
         <div className="itinerary-comment-users" key={item?._id}>
           <div className="itinerary-profile">
             <img
-              src={item?.user.photo && item?.user.photo}
+              src={item.user?.photo && item.user?.photo}
               width="50px"
               alt="image"
             />
