@@ -6,7 +6,9 @@ import '../style/NewCity.css'
 export default function NewCity() {
     return (
     <div className='NewCity-container'>
-        <h2>New City ✈</h2>
+        <div className='newcity-title'>
+            <h2>New City ✈</h2>
+        </div>
         <InputsNewCity />
     </div>
     )

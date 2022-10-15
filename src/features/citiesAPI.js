@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import apiurl from '../api';
 
 export const citiesAPI = createApi({
     reducerPath: "citiesAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: apiurl
 
     }),
     endpoints: (builder) => ({
@@ -17,21 +18,29 @@ export const citiesAPI = createApi({
         getCityById: builder.query({
             query: (id) => `/cities/${id}`
         }),
+        getCityForId: builder.mutation({
+            query: (id) => ({
+                url: `/cities/${id}`,
+                method: 'GET'
+            })
+        }),
         getPostNewCity: builder.mutation({
             query(payload){
                 return{
                     url: 'cities',
                     method: 'POST',
-                    body: payload
+                    body: payload,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                 }
             },
             invalidatesTags: ['Post'],
         }),
         getUpdateCity: builder.mutation({
-            query: post => ({
-                url: `cities/${post._id}`,
+            query: ({id, ...post}) => ({
+                url: `cities/${id}`,
                 method: 'PATCH',
-                body: post
+                body: post,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             })
         })
     })
@@ -39,4 +48,4 @@ export const citiesAPI = createApi({
 
 
 export default citiesAPI;
-export const {useGetAllcitiesQuery, useGetCityNameQuery, useGetPostNewCityMutation, useGetUpdateCityMutation, useGetCityByIdQuery} = citiesAPI;
+export const {useGetAllcitiesQuery, useGetCityNameQuery, useGetPostNewCityMutation, useGetUpdateCityMutation, useGetCityByIdQuery, useGetCityForIdMutation} = citiesAPI;

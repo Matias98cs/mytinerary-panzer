@@ -1,36 +1,53 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../style/InputsCities.css";
 import InputForm from "./InputsForm/InputForm";
-import {useGetPostNewCityMutation} from '../features/citiesAPI'
-
+import { useGetPostNewCityMutation } from "../features/citiesAPI";
+import Alerts from "./Alert/Alerts";
+import { useDispatch } from "react-redux";
+import {setReload} from '../features/likeSlice'
+import {setMessage} from '../features/messageSlice'
 
 export default function InputsNewCity() {
   const formRef = useRef();
-  const [data, setData] = useState([]);
+  const [addNewPost] = useGetPostNewCityMutation();
+  const dispatch = useDispatch()
 
-  const { city, country, photo, population, fundation, description } = data;
+  async function sendCity(values) {
+    const formCities = document.querySelector("#form-cities");
 
-  const [addNewPost, response] = useGetPostNewCityMutation()
-
-  useEffect( () => {
-    addNewPost(data)
-    .unwrap()
-    .then((succes) => console.log(succes))
-    .catch((error) => console.log(error))
-    
-  },[data])
+    try {
+      let res = await addNewPost(values)
+      if(res.data?.success){
+        dispatch(setReload())
+        formCities.reset()
+        dispatch(setMessage({
+          message: "City created",
+          success: true
+        }))
+      }else{
+        dispatch(setMessage({
+          message: res.error.data.message,
+          success: false
+        }))
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formCities = document.querySelector("#form-cities");
-
     const forData = new FormData(formRef.current);
     const values = Object.fromEntries(forData);
-    setData(values);
-    formCities.reset();
+    if(values.city == "" || values.country == "" || values.population == "" || values.fundation == "" || values.photo == ""){
+      dispatch(setMessage({
+        message: "Please enter all data",
+        success: false
+      }))
+    }else{
+      sendCity(values);
+    }
   };
-
 
   return (
     <>
@@ -40,9 +57,10 @@ export default function InputsNewCity() {
         onSubmit={handleSubmit}
         ref={formRef}
       >
-        
         <InputForm />
-        <button className="btn-form" type="submit">Send</button>
+        <button className="btn-form" type="submit">
+          Send
+        </button>
       </form>
     </>
   );

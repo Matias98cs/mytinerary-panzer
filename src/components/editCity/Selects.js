@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useGetAllcitiesQuery } from "../../features/citiesAPI";
 
 function Selects({ takeValueSelect }) {
-  const { data: cities } = useGetAllcitiesQuery();
+  const { data: cities, refetch } = useGetAllcitiesQuery();
+  const reload = useSelector(state => state.like.reload)
+
 
   const showOptions = (cityItem) => {
     return (
@@ -16,6 +19,10 @@ function Selects({ takeValueSelect }) {
     let valueSelect = e.target.value;
     takeValueSelect(valueSelect);
   };
+
+  useEffect(() => {
+    refetch()
+  }, [reload])
 
   return (
     <select onChange={handleChange}>

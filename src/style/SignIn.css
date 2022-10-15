@@ -1,0 +1,74 @@
+.SignIn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    gap: 6em;
+    background-image: url(https://images.hola.com/imagenes/estar-bien/20200811173405/psicologia-obsesion-viajar/0-854-752/viajar-t.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.SignIn-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    background-color: #3f4e4fbc;
+    width: 500px;
+    height: 220px;
+    border-radius: 1rem;
+    align-items: center;
+}
+
+.signin-title{
+    width: 100%;
+    background-color: #3f4e4fbc;
+    padding: 6px 0;
+    color: white;
+}
+
+.signin-title h2{
+    font-size: 2rem;
+}
+
+.signIn-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
+.SignIn-container form label {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    width: 300px;
+    color: white;
+}
+
+.signIn-btn button{
+    background-color: #3f4e4fbc;
+    color: white;
+    border: none;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+}
+
+.signIn-btn button:hover{
+    background-color: #dcd7c9e8;
+    color: black ;
+    font-weight: bolder;
+}
+
+@media (max-width:505px){
+    .SignIn-container form{
+        width: 90vw;
+    }
+    
+    .SignIn-container form label{
+        width: 70vw;
+    }
+}

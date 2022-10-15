@@ -1,0 +1,68 @@
+.container-form-itinerary {
+    display: flex;
+    min-height: 87vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(102deg, #08080a54 8%, rgba(0, 0, 0, 0.363)) ,url('../../public/images/pexels-adrien-olichon-2387628 (1).jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.patchItini-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: centers;
+    background-color: #a27b5cd3;
+    padding: 2em;
+    gap: 1em;
+    width: 350px;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.patchItini-p  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .6em;
+}
+.patchItini-p p {
+    color: white;
+    letter-spacing: .3px;
+}
+
+.patchItini-p input {
+    border: none;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.patchItini-p img {
+    display: flex;
+    width: 200px;
+    border-radius: 1rem;
+}
+
+.itinerary-acti-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patchItini-btn {
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #DCD7C9;
+    border-radius: 1rem;
+    padding: 10px 0 10px 0;
+    color: #252525;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.patchItini-btn:hover{
+    background-color: #3f4e4fb7;
+    color: white;
+    transform: scale(1.1);
+}

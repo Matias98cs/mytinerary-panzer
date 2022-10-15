@@ -4,10 +4,12 @@
     gap: 1em;
     justify-content: center;
     padding: 3em;
-    background-color: #3F4E4F;
+    background-color: #a27b5cb7;
     border-radius: 1rem;
-    color: #DCD7C9;
+    color: #2C3639;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
 
 .Form-editCity p{
@@ -26,13 +28,15 @@
     padding: .5rem;
     font-weight: bold;
     font-size: 1rem;
-    background-color: #A27B5C;
-    color: white;
+    background-color: #DCD7C9;
+    color: #2C3639;
     cursor: pointer;
 }
 
 .Form-editCity button:hover{
     transform: scale(1.1);
+    background-color: #2C3639;
+    color: white;
 }
 
 .container-inputs {
