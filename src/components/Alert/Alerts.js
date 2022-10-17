@@ -8,7 +8,6 @@ import { setMessage } from "../../features/messageSlice";
 function Alerts() {
 
   const alert = useSelector(state => state.message)
-  const logged = useSelector(state => state.auth.logged)
   const dispatch = useDispatch()
 
   const success = (msgSuccess) => {
@@ -36,7 +35,6 @@ function Alerts() {
   };
 
 
-  if(logged){
     if(alert.success){
       success(alert.message)
       dispatch(setMessage({
@@ -50,7 +48,6 @@ function Alerts() {
         success: null
       }))
     }
-  }
 
   return (
     <>
