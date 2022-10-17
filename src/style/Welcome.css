@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 85vh;
+    min-height: 90vh;
     background-color: #3F4E4F;
     color: black;
     gap: 2em;
@@ -55,7 +55,8 @@
 .Welcome-title-logo h3{
     width: 350px;
     text-align: center;
-    color: #fff;
+    color:  #DCD7C9;
+    line-height: 2rem;
     letter-spacing: 1px;
     font-family: 'Roboto', sans-serif;
 }
