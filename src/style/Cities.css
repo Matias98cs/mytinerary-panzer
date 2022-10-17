@@ -10,9 +10,11 @@
     border-radius: 1rem;
     width: 400px;
     height: 30px;
+    font-size: 1.1rem;
     padding-left: .4rem;
-    background-color: rgba(255, 255, 255, 0.719);
     font-weight: bold;
+    background-color: #252525a6;
+    color: white;
 }
 
 .form-input-text input:focus-visible {
@@ -26,7 +28,6 @@
     align-items: center;
     flex-direction: column;
     min-height: 80vh;
-    /* background: #dcd7c94f; */
     background: url("../../public/images/bariloche.png");
 }
 
